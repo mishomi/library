@@ -13,15 +13,12 @@ public abstract class Inventory {
     private String name;
     private Author author;
     private Supervisor supervisor;
-    private LocalDateTime takenAt;
     private Publisher publisher;
 
     public Inventory(String name, Author author, Supervisor supervisor, Publisher publisher, Genre genre) {
-
         this.name = name;
         this.author = author;
         this.supervisor = supervisor;
-        this.takenAt = null;
         publisher.addInventory(this);
         genre.addBook(this);
     }
@@ -30,9 +27,6 @@ public abstract class Inventory {
 
     public abstract void returnItem();
 
-    public void setTimeOfBooking(LocalDateTime localDateTime) {
-        this.takenAt = localDateTime;
-    }
 
     public String getName() {
         return name;
@@ -56,5 +50,13 @@ public abstract class Inventory {
 
     public void setSupervisor(Supervisor supervisor) {
         this.supervisor = supervisor;
+    }
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
     }
 }

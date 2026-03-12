@@ -6,7 +6,6 @@ public abstract class Worker {
     private String name;
 
     public Worker(int salary, String name) {
-
         this.salary = salary;
         this.name = name;
     }

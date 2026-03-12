@@ -5,7 +5,6 @@ public class Receptionist extends Worker {
     private String knownLanguages;
 
     public Receptionist(int salary, String name, String knownLanguages) {
-
         super(salary, name);
         this.knownLanguages = knownLanguages;
     }

@@ -13,7 +13,6 @@ public class EBook extends Inventory {
     private String link;
 
     public EBook(String name, Author author, Supervisor supervisor, String link, Publisher publisher, Genre genre) {
-
         super(name, author, supervisor, publisher, genre);
         this.link = link;
     }

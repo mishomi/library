@@ -8,7 +8,6 @@ public class Supervisor extends Worker {
     private int pointer = 0;
 
     public Supervisor(int salary, String name) {
-
         super(salary, name);
         this.assignedInventory = new Inventory[20];
     }

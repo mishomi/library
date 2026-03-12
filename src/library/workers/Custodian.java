@@ -5,7 +5,6 @@ public class Custodian extends Worker {
     private int supervisorId;
 
     public Custodian(int salary, String name, int supervisorId) {
-
         super(salary, name);
         this.supervisorId = supervisorId;
     }

@@ -10,41 +10,41 @@ public class Customer {
     private BigDecimal money;
     private int age;
     private Inventory[] itemsCurrectlyInPossession;
-    private int countOfItems;
+    private int pointer;
+
     private BigDecimal outstandingFees;
 
     public Customer(String name, BigDecimal money, int age) {
-
         this.name = name;
         this.money = money;
         this.age = age;
         this.itemsCurrectlyInPossession = new Inventory[5];
-        this.countOfItems = 0;
+        this.pointer = 0;
         this.outstandingFees = BigDecimal.valueOf(0);
     }
 
     public void takeItem(Inventory inventory) {
 
-        if (countOfItems >= itemsCurrectlyInPossession.length) {
+        if (pointer >= itemsCurrectlyInPossession.length) {
             Inventory[] temp = new Inventory[itemsCurrectlyInPossession.length * 2];
             System.arraycopy(itemsCurrectlyInPossession, 0, temp, 0, itemsCurrectlyInPossession.length);
             itemsCurrectlyInPossession = temp;
         }
-        itemsCurrectlyInPossession[countOfItems] = inventory;
-        countOfItems++;
+        itemsCurrectlyInPossession[pointer] = inventory;
+        pointer++;
     }
 
     public void returnItem(Inventory inventory) {
 
-        for (int i = 0; i < countOfItems; i++) {
+        for (int i = 0; i < pointer; i++) {
             if (itemsCurrectlyInPossession[i] == inventory) {
                 itemsCurrectlyInPossession[i] = null;
-                for (int j = i; j < countOfItems - 1; j++) {
+                for (int j = i; j < pointer - 1; j++) {
                     Inventory temp = itemsCurrectlyInPossession[j];
                     itemsCurrectlyInPossession[j] = itemsCurrectlyInPossession[j + 1];
                     itemsCurrectlyInPossession[j + 1] = temp;
                 }
-                countOfItems--;
+                pointer--;
                 break;
             }
         }

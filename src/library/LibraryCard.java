@@ -8,7 +8,6 @@ public class LibraryCard {
     private LocalDateTime expirationDate;
 
     public LibraryCard(Customer customer) {
-
         this.customer = customer;
         this.expirationDate = LocalDateTime.now().plusYears(3);
     }

@@ -8,7 +8,6 @@ public class Fine {
     private Customer customer;
 
     public Fine(BigDecimal amount, Customer customer) {
-
         this.amount = amount;
         this.customer = customer;
         customer.setOutstandingFees(customer.getOutstandingFees().add(amount));

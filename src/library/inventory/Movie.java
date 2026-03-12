@@ -14,7 +14,6 @@ public class Movie extends Inventory {
     private int minimumRequiredAge;
 
     public Movie(String name, Author author, BigDecimal price, Supervisor supervisor, int minimumRequiredAge, Publisher publisher, Genre genre) {
-
         super(name, author, supervisor, publisher, genre);
         this.price = price;
         this.minimumRequiredAge = minimumRequiredAge;

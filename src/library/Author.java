@@ -6,7 +6,6 @@ public class Author {
     private String nationality;
 
     public Author(String name, String nationality) {
-
         this.name = name;
         this.nationality = nationality;
     }

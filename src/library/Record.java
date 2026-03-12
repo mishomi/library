@@ -14,7 +14,6 @@ public class Record {
     private LocalDateTime returnDate;
 
     public Record(Customer customer, Inventory inventory) {
-
         this.customer = customer;
         this.inventory = inventory;
         this.borrowDate = LocalDateTime.now();

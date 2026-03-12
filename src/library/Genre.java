@@ -9,7 +9,6 @@ public class Genre {
     private int pointer;
 
     public Genre(String name) {
-
         this.name = name;
         this.booksInThisGenre = new Inventory[20];
         this.pointer = 0;

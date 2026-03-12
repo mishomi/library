@@ -10,7 +10,6 @@ public class Publisher {
     private int pointer = 0;
 
     public Publisher(String name, String country) {
-
         this.country = country;
         this.name = name;
         this.publishedBooks = new Inventory[20];

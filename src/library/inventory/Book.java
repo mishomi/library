@@ -13,7 +13,6 @@ public class Book extends Inventory {
     private BigDecimal price;
 
     public Book(String name, Author author, Supervisor supervisor, BigDecimal price, Publisher publisher, Genre genre) {
-
         super(name, author, supervisor, publisher, genre);
         this.price = price;
     }

@@ -15,7 +15,6 @@ public class Library {
     private int customerCount;
 
     public Library(String name) {
-
         this.name = name;
         this.inventory = new Inventory[50];
         this.workers = new Worker[20];
