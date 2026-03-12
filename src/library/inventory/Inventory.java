@@ -36,8 +36,8 @@ public abstract class Inventory {
         this.name = name;
     }
 
-    public Author getAuthor() {
-        return author;
+    public String getAuthor() {
+        return author.getNationality();
     }
 
     public void setAuthor(Author author) {
