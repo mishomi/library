@@ -36,8 +36,9 @@ public abstract class Inventory {
         this.name = name;
     }
 
-    public Author getAuthor() {
-        return author;
+    public void getAuthor() {
+        System.out.println("changes i want hidden using git stash");
+        return ;
     }
 
     public void setAuthor(Author author) {
