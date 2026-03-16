@@ -1,4 +1,4 @@
-package library.person;
+package person;
 
 import java.time.LocalDateTime;
 

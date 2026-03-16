@@ -1,6 +1,6 @@
-package library.transaction;
+package transaction;
 
-import library.person.Customer;
+import person.Customer;
 
 import java.math.BigDecimal;
 

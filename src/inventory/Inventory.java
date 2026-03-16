@@ -1,9 +1,9 @@
-package library.inventory;
+package inventory;
 
-import library.person.Author;
-import library.person.Customer;
-import library.organization.Publisher;
-import library.workers.Supervisor;
+import person.Author;
+import person.Customer;
+import organization.Publisher;
+import workers.Supervisor;
 
 public abstract class Inventory {
 

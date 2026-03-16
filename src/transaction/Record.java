@@ -1,7 +1,7 @@
-package library.transaction;
+package transaction;
 
-import library.inventory.Inventory;
-import library.person.Customer;
+import inventory.Inventory;
+import person.Customer;
 
 import java.math.BigDecimal;
 import java.time.Duration;

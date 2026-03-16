@@ -1,9 +1,9 @@
-package library.inventory;
+package inventory;
 
-import library.person.Author;
-import library.person.Customer;
-import library.organization.Publisher;
-import library.workers.Supervisor;
+import person.Author;
+import person.Customer;
+import organization.Publisher;
+import workers.Supervisor;
 
 import java.math.BigDecimal;
 
@@ -28,7 +28,7 @@ public class EBook extends Inventory {
                 return;
             }
         }
-        System.out.println("Download your E-library.inventory.Book here: " + link);
+        System.out.println("Download your E-inventory.Book here: " + link);
     }
 
     @Override

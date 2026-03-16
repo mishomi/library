@@ -1,4 +1,4 @@
-package library.person;
+package person;
 
 public abstract class Person {
     protected String name;

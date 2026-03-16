@@ -1,8 +1,8 @@
-package library.organization;
+package organization;
 
-import library.inventory.Inventory;
-import library.person.Customer;
-import library.workers.Worker;
+import inventory.Inventory;
+import person.Customer;
+import workers.Worker;
 
 public class Library extends Organization{
 

@@ -1,4 +1,4 @@
-package library.inventory;
+package inventory;
 
 public class Genre {
 

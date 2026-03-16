@@ -1,4 +1,4 @@
-package library.person;
+package person;
 
 public class Author extends Person {
 

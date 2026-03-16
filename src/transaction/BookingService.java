@@ -1,18 +1,18 @@
-package library.transaction;
+package transaction;
 
-import library.inventory.Inventory;
-import library.person.Customer;
+import inventory.Inventory;
+import person.Customer;
 
 public class BookingService {
 
-    private static library.transaction.Record[] records = new library.transaction.Record[20];
+    private static transaction.Record[] records = new transaction.Record[20];
     private static int recordsPointer = 0;
 
     public void book(Customer customer, Inventory inventory) {
         inventory.bookItem(customer);
         customer.takeItem(inventory);
         if (recordsPointer >= records.length) {
-            library.transaction.Record[] temp = new library.transaction.Record[records.length * 2];
+            transaction.Record[] temp = new transaction.Record[records.length * 2];
             System.arraycopy(records, 0, temp, 0, records.length);
             records = temp;
         }

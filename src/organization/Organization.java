@@ -1,4 +1,4 @@
-package library.organization;
+package organization;
 
 public abstract class Organization {
     protected String name;

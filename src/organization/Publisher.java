@@ -1,6 +1,6 @@
-package library.organization;
+package organization;
 
-import library.inventory.Inventory;
+import inventory.Inventory;
 
 public class Publisher extends Organization{
 

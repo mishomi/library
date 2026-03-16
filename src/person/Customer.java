@@ -1,6 +1,6 @@
-package library.person;
+package person;
 
-import library.inventory.Inventory;
+import inventory.Inventory;
 
 import java.math.BigDecimal;
 
