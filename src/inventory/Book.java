@@ -1,10 +1,9 @@
-package library.inventory;
+package inventory;
 
-import library.Author;
-import library.Customer;
-import library.Genre;
-import library.Publisher;
-import library.workers.Supervisor;
+import person.Author;
+import person.Customer;
+import organization.Publisher;
+import workers.Supervisor;
 
 import java.math.BigDecimal;
 

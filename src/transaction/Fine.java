@@ -1,4 +1,6 @@
-package library;
+package transaction;
+
+import person.Customer;
 
 import java.math.BigDecimal;
 
@@ -27,5 +29,10 @@ public class Fine {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    @Override
+    public String toString() {
+        return "Fine [amount = " + amount + ", customer = " + (customer != null ? customer.getName() : "unknown") + "]";
     }
 }

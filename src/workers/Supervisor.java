@@ -1,6 +1,6 @@
-package library.workers;
+package workers;
 
-import library.inventory.Inventory;
+import inventory.Inventory;
 
 public class Supervisor extends Worker {
 

@@ -1,11 +1,15 @@
-package library;
-
-import library.inventory.Book;
-import library.inventory.EBook;
-import library.inventory.Movie;
-import library.workers.Custodian;
-import library.workers.Receptionist;
-import library.workers.Supervisor;
+import inventory.Book;
+import inventory.EBook;
+import inventory.Genre;
+import inventory.Movie;
+import organization.Library;
+import organization.Publisher;
+import person.Author;
+import person.Customer;
+import transaction.BookingService;
+import workers.Custodian;
+import workers.Receptionist;
+import workers.Supervisor;
 
 import java.math.BigDecimal;
 

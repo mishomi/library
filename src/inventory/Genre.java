@@ -1,10 +1,8 @@
-package library;
-
-import library.inventory.Inventory;
+package inventory;
 
 public class Genre {
 
-    private String name;
+    protected String name;
     private Inventory[] booksInThisGenre;
     private int pointer;
 

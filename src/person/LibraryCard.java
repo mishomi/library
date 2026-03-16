@@ -1,4 +1,4 @@
-package library;
+package person;
 
 import java.time.LocalDateTime;
 
@@ -31,5 +31,10 @@ public class LibraryCard {
 
     public void setExpirationDate(LocalDateTime expirationDate) {
         this.expirationDate = expirationDate;
+    }
+
+    @Override
+    public String toString() {
+        return "LibraryCard [customer = " + (customer != null ? customer.getName() : "unknown") + ", expires at " + expirationDate + "]";
     }
 }

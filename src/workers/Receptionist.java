@@ -1,4 +1,4 @@
-package library.workers;
+package workers;
 
 public class Receptionist extends Worker {
 

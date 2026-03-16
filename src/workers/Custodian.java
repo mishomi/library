@@ -1,4 +1,4 @@
-package library.workers;
+package workers;
 
 public class Custodian extends Worker {
 
