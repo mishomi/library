@@ -1,12 +1,9 @@
 package library.inventory;
 
-import library.Author;
-import library.Customer;
-import library.Genre;
-import library.Publisher;
+import library.person.Author;
+import library.person.Customer;
+import library.organization.Publisher;
 import library.workers.Supervisor;
-
-import java.time.LocalDateTime;
 
 public abstract class Inventory {
 

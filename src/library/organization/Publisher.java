@@ -1,15 +1,15 @@
-package library;
+package library.organization;
 
 import library.inventory.Inventory;
 
-public class Publisher {
+public class Publisher extends Organization{
 
-    private String name;
     private String country;
     private Inventory[] publishedBooks;
     private int pointer = 0;
 
     public Publisher(String name, String country) {
+        super(name);
         this.country = country;
         this.name = name;
         this.publishedBooks = new Inventory[20];
@@ -32,13 +32,9 @@ public class Publisher {
         publishedBooks[pointer] = inventory;
         pointer++;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    @Override
+    public String toString() {
+        return "Publisher[name=" + name + ", country=" + country + "]";
     }
 
     public String getCountry() {

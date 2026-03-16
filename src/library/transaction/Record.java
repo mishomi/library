@@ -1,34 +1,25 @@
-package library;
+package library.transaction;
 
 import library.inventory.Inventory;
+import library.person.Customer;
 
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-public class Record {
+public class Record extends Transaction{
 
-    private Customer customer;
-    private Inventory inventory;
+
     private LocalDateTime borrowDate;
     private LocalDateTime returnDate;
 
     public Record(Customer customer, Inventory inventory) {
-        this.customer = customer;
-        this.inventory = inventory;
+        super(customer, inventory);
         this.borrowDate = LocalDateTime.now();
-    }
-
-    public Customer getCustomer() {
-        return customer;
     }
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
-    }
-
-    public Inventory getInventory() {
-        return inventory;
     }
 
     public void setInventory(Inventory inventory) {
@@ -57,5 +48,9 @@ public class Record {
         if (Duration.between(borrowDate, returnDate).toDays() > 30) {
             Fine fine = new Fine(BigDecimal.valueOf(20), customer);
         }
+    }
+    @Override
+    public String describe() {
+        return "Record[" + customer.getName() + " borrowed " + inventory.getName() + "]";
     }
 }

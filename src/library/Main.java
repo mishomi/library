@@ -2,7 +2,13 @@ package library;
 
 import library.inventory.Book;
 import library.inventory.EBook;
+import library.inventory.Genre;
 import library.inventory.Movie;
+import library.organization.Library;
+import library.organization.Publisher;
+import library.person.Author;
+import library.person.Customer;
+import library.transaction.BookingService;
 import library.workers.Custodian;
 import library.workers.Receptionist;
 import library.workers.Supervisor;

@@ -1,10 +1,10 @@
-package library;
+package library.person;
 
 import library.inventory.Inventory;
 
 import java.math.BigDecimal;
 
-public class Customer {
+public class Customer extends Person {
 
     private String name;
     private BigDecimal money;
@@ -15,6 +15,7 @@ public class Customer {
     private BigDecimal outstandingFees;
 
     public Customer(String name, BigDecimal money, int age) {
+        super(name, age);
         this.name = name;
         this.money = money;
         this.age = age;
@@ -22,7 +23,10 @@ public class Customer {
         this.pointer = 0;
         this.outstandingFees = BigDecimal.valueOf(0);
     }
-
+    @Override
+    public String toString() {
+        return "Customer[name=" + name + ", age=" + age + ", money=" + money + "]";
+    }
     public void takeItem(Inventory inventory) {
 
         if (pointer >= itemsCurrectlyInPossession.length) {
@@ -50,28 +54,12 @@ public class Customer {
         }
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public BigDecimal getMoney() {
         return money;
     }
 
     public void setMoney(BigDecimal money) {
         this.money = money;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public BigDecimal getOutstandingFees() {

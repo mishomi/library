@@ -1,11 +1,11 @@
-package library;
+package library.organization;
 
 import library.inventory.Inventory;
+import library.person.Customer;
 import library.workers.Worker;
 
-public class Library {
+public class Library extends Organization{
 
-    private String name;
     private Inventory[] inventory;
     private Worker[] workers;
     private Customer[] customers;
@@ -15,7 +15,7 @@ public class Library {
     private int customerCount;
 
     public Library(String name) {
-        this.name = name;
+        super(name);
         this.inventory = new Inventory[50];
         this.workers = new Worker[20];
         this.customers = new Customer[50];
@@ -96,12 +96,23 @@ public class Library {
         System.out.println("no such customer exists");
     }
 
-    public String getName() {
-        return name;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Library library = (Library) o;
+        return name != null ? name.equals(library.name) : library.name == null;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    @Override
+    public int hashCode() {
+        return name != null ? name.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Library[name=" + name + "]";
     }
 
     public Inventory[] getInventory() {

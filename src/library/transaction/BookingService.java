@@ -1,19 +1,18 @@
-package library;
+package library.transaction;
 
 import library.inventory.Inventory;
-
-import java.time.LocalDateTime;
+import library.person.Customer;
 
 public class BookingService {
 
-    private static Record[] records = new Record[20];
+    private static library.transaction.Record[] records = new library.transaction.Record[20];
     private static int recordsPointer = 0;
 
     public void book(Customer customer, Inventory inventory) {
         inventory.bookItem(customer);
         customer.takeItem(inventory);
         if (recordsPointer >= records.length) {
-            Record[] temp = new Record[records.length * 2];
+            library.transaction.Record[] temp = new library.transaction.Record[records.length * 2];
             System.arraycopy(records, 0, temp, 0, records.length);
             records = temp;
         }
