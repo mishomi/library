@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-public class Record extends Transaction{
+public class Record extends Transaction implements Describeable{
 
 
     private LocalDateTime borrowDate;
@@ -52,5 +52,13 @@ public class Record extends Transaction{
     @Override
     public String describe() {
         return "Record[" + customer.getName() + " borrowed " + inventory.getName() + "]";
+    }
+    public String describe(boolean useDate){
+        if (useDate){
+            return "Record[" + customer.getName() + " borrowed " + inventory.getName() + "], borrowed at " + borrowDate;
+        }
+        else {
+            return "Record[" + customer.getName() + " borrowed " + inventory.getName() + "]";
+        }
     }
 }

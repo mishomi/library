@@ -4,7 +4,7 @@ import inventory.Inventory;
 
 import java.math.BigDecimal;
 
-public class Customer extends Person {
+public class Customer extends Person implements FeeToPay{
 
     private String name;
     private BigDecimal money;

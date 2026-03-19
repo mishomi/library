@@ -1,6 +1,6 @@
 package workers;
 
-public abstract class Worker {
+public abstract class Worker implements EmployeeInformation{
 
     private int salary;
     private String name;

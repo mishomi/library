@@ -5,9 +5,13 @@ import person.Customer;
 
 public class BookingService {
 
-    private static transaction.Record[] records = new transaction.Record[20];
-    private static int recordsPointer = 0;
+    private static transaction.Record[] records ;
+    private static int recordsPointer ;
 
+    static {
+        records = new Record[20];
+        recordsPointer = 0;
+    }
     public void book(Customer customer, Inventory inventory) {
         inventory.bookItem(customer);
         customer.takeItem(inventory);

@@ -4,7 +4,7 @@ import inventory.Inventory;
 import person.Customer;
 import workers.Worker;
 
-public class Library extends Organization{
+public class Library extends Organization implements Management{
 
     private Inventory[] inventory;
     private Worker[] workers;
