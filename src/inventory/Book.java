@@ -7,7 +7,7 @@ import workers.Supervisor;
 
 import java.math.BigDecimal;
 
-public class Book extends Inventory implements ItemWithPrice{
+public class Book extends Inventory implements ItemWithPrice, BorrowableItem {
 
     private BigDecimal price;
 

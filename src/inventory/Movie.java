@@ -7,7 +7,7 @@ import workers.Supervisor;
 
 import java.math.BigDecimal;
 
-public class Movie extends Inventory implements ItemWithPrice, ItemWithAgeRequirement{
+public class Movie extends Inventory implements ItemWithPrice, BorrowableItem {
 
     private BigDecimal price;
     private int minimumRequiredAge;

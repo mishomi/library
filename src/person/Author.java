@@ -1,6 +1,6 @@
 package person;
 
-public class Author extends Person {
+public class Author extends Person implements LibraryPeople {
 
     private String name;
     private String nationality;
@@ -21,5 +21,9 @@ public class Author extends Person {
 
     public void setNationality(String nationality) {
         this.nationality = nationality;
+    }
+
+    public String getRole() {
+        return "Author";
     }
 }

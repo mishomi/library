@@ -4,7 +4,7 @@ import inventory.Inventory;
 import person.Customer;
 import workers.Worker;
 
-public class Library extends Organization implements Management{
+public class Library extends Organization implements Company {
 
     private Inventory[] inventory;
     private Worker[] workers;
@@ -138,5 +138,9 @@ public class Library extends Organization implements Management{
 
     public void setCustomers(Customer[] customers) {
         this.customers = customers;
+    }
+
+    public String getDescription() {
+        return "Library named " + name;
     }
 }

@@ -4,7 +4,7 @@ import person.Customer;
 
 import java.math.BigDecimal;
 
-public class Fine implements Describeable{
+public class Fine implements Describeable {
 
     private BigDecimal amount;
     private Customer customer;
@@ -36,7 +36,7 @@ public class Fine implements Describeable{
         return "Fine [amount = " + amount + ", customer = " + (customer != null ? customer.getName() : "unknown") + "]";
     }
 
-    public String describe(){
+    public String describe() {
         return "Fine [amount = " + amount + ", customer = " + (customer != null ? customer.getName() : "unknown") + "]";
     }
 }

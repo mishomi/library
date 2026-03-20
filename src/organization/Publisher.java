@@ -2,7 +2,7 @@ package organization;
 
 import inventory.Inventory;
 
-public class Publisher extends Organization{
+public class Publisher extends Organization {
 
     private String country;
     private Inventory[] publishedBooks;
@@ -32,6 +32,7 @@ public class Publisher extends Organization{
         publishedBooks[pointer] = inventory;
         pointer++;
     }
+
     @Override
     public String toString() {
         return "Publisher[name=" + name + ", country=" + country + "]";
@@ -51,5 +52,9 @@ public class Publisher extends Organization{
 
     public void setPublishedBooks(Inventory[] publishedBooks) {
         this.publishedBooks = publishedBooks;
+    }
+
+    public String getDescription() {
+        return "Publisher " + name + " from " + country;
     }
 }

@@ -1,6 +1,6 @@
 package workers;
 
-public class Custodian extends Worker {
+public class Custodian extends Worker implements StaffMember {
 
     private int supervisorId;
 
@@ -15,5 +15,9 @@ public class Custodian extends Worker {
 
     public void setSupervisorId(int supervisorId) {
         this.supervisorId = supervisorId;
+    }
+
+    public String getDuties() {
+        return "Maintains building cleanliness";
     }
 }

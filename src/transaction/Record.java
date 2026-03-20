@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-public class Record extends Transaction implements Describeable{
+public class Record extends Transaction implements Describeable {
 
 
     private LocalDateTime borrowDate;
@@ -49,15 +49,16 @@ public class Record extends Transaction implements Describeable{
             Fine fine = new Fine(BigDecimal.valueOf(20), customer);
         }
     }
+
     @Override
     public String describe() {
         return "Record[" + customer.getName() + " borrowed " + inventory.getName() + "]";
     }
-    public String describe(boolean useDate){
-        if (useDate){
+
+    public String describe(boolean useDate) {
+        if (useDate) {
             return "Record[" + customer.getName() + " borrowed " + inventory.getName() + "], borrowed at " + borrowDate;
-        }
-        else {
+        } else {
             return "Record[" + customer.getName() + " borrowed " + inventory.getName() + "]";
         }
     }

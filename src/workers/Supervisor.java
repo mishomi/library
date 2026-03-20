@@ -2,7 +2,7 @@ package workers;
 
 import inventory.Inventory;
 
-public class Supervisor extends Worker {
+public class Supervisor extends Worker implements StaffMember {
 
     private Inventory[] assignedInventory;
     private int pointer = 0;
@@ -41,5 +41,9 @@ public class Supervisor extends Worker {
             }
         }
         System.out.println("no such inventory exists");
+    }
+
+    public String getDuties() {
+        return "Supervises inventory and staff";
     }
 }

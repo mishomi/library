@@ -1,6 +1,6 @@
 package workers;
 
-public class Receptionist extends Worker {
+public class Receptionist extends Worker implements StaffMember {
 
     private String knownLanguages;
 
@@ -15,5 +15,9 @@ public class Receptionist extends Worker {
 
     public void setKnownLanguages(String knownLanguages) {
         this.knownLanguages = knownLanguages;
+    }
+
+    public String getDuties() {
+        return "Handles visitors and customer service";
     }
 }

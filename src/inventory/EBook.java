@@ -7,7 +7,7 @@ import workers.Supervisor;
 
 import java.math.BigDecimal;
 
-public class EBook extends Inventory {
+public class EBook extends Inventory implements BorrowableItem {
 
     private String link;
 

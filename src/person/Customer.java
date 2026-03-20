@@ -4,7 +4,7 @@ import inventory.Inventory;
 
 import java.math.BigDecimal;
 
-public class Customer extends Person implements FeeToPay{
+public class Customer extends Person implements LibraryPeople {
 
     private String name;
     private BigDecimal money;
@@ -23,10 +23,12 @@ public class Customer extends Person implements FeeToPay{
         this.pointer = 0;
         this.outstandingFees = BigDecimal.valueOf(0);
     }
+
     @Override
     public String toString() {
         return "Customer[name=" + name + ", age=" + age + ", money=" + money + "]";
     }
+
     public void takeItem(Inventory inventory) {
 
         if (pointer >= itemsCurrectlyInPossession.length) {
@@ -77,5 +79,9 @@ public class Customer extends Person implements FeeToPay{
                 this.outstandingFees = BigDecimal.valueOf(0);
             }
         }
+    }
+
+    public String getRole() {
+        return "Customer";
     }
 }
