@@ -36,6 +36,7 @@ public class Fine implements Describeable {
         return "Fine [amount = " + amount + ", customer = " + (customer != null ? customer.getName() : "unknown") + "]";
     }
 
+    @Override
     public String describe() {
         return "Fine [amount = " + amount + ", customer = " + (customer != null ? customer.getName() : "unknown") + "]";
     }

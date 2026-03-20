@@ -1,6 +1,6 @@
 package workers;
 
-public abstract class Worker {
+public abstract class Worker implements StaffMember{
 
     private int salary;
     private String name;
@@ -10,6 +10,7 @@ public abstract class Worker {
         this.name = name;
     }
 
+    @Override
     public int getSalary() {
         return salary;
     }
@@ -18,6 +19,7 @@ public abstract class Worker {
         this.salary = salary;
     }
 
+    @Override
     public String getName() {
         return name;
     }

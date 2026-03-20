@@ -81,6 +81,7 @@ public class Customer extends Person implements LibraryPeople {
         }
     }
 
+    @Override
     public String getRole() {
         return "Customer";
     }

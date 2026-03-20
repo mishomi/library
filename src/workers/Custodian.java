@@ -17,6 +17,7 @@ public class Custodian extends Worker implements StaffMember {
         this.supervisorId = supervisorId;
     }
 
+    @Override
     public String getDuties() {
         return "Maintains building cleanliness";
     }

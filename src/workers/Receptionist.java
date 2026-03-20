@@ -17,6 +17,7 @@ public class Receptionist extends Worker implements StaffMember {
         this.knownLanguages = knownLanguages;
     }
 
+    @Override
     public String getDuties() {
         return "Handles visitors and customer service";
     }

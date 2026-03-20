@@ -43,6 +43,7 @@ public class Supervisor extends Worker implements StaffMember {
         System.out.println("no such inventory exists");
     }
 
+    @Override
     public String getDuties() {
         return "Supervises inventory and staff";
     }

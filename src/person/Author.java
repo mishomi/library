@@ -23,6 +23,7 @@ public class Author extends Person implements LibraryPeople {
         this.nationality = nationality;
     }
 
+    @Override
     public String getRole() {
         return "Author";
     }

@@ -3,7 +3,7 @@ package transaction;
 import inventory.Inventory;
 import person.Customer;
 
-public abstract class Transaction implements Describeable {
+public abstract class Transaction {
     protected Customer customer;
     protected Inventory inventory;
 

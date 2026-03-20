@@ -1,6 +1,6 @@
 package person;
 
-public abstract class Person {
+public abstract class Person implements LibraryPeople{
     protected String name;
     protected int age;
 
@@ -9,6 +9,7 @@ public abstract class Person {
         this.age = age;
     }
 
+    @Override
     public String getName() {
         return name;
     }
@@ -17,6 +18,7 @@ public abstract class Person {
         this.name = name;
     }
 
+    @Override
     public int getAge() {
         return age;
     }

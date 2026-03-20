@@ -59,10 +59,12 @@ public class Movie extends Inventory implements ItemWithPrice, BorrowableItem {
         System.out.println("thank you, come again!");
     }
 
+    @Override
     public BigDecimal getPrice() {
         return price;
     }
 
+    @Override
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
