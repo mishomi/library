@@ -67,15 +67,5 @@ public class Main {
         catch (RuntimeException e) {
             System.out.println("Runtime error: " + e.getMessage());
         }
-
-//        bookingService.book(customer, book);
-//        bookingService.book(customer, movie);
-//        bookingService.book(customer, eBook);
-//
-//        bookingService.returnItem(customer, book);
-//        bookingService.returnItem(customer, movie);
-//        bookingService.returnItem(customer, eBook);
-//        System.out.println(BookingService.getOutstandingItemsCount());
-//        BookingService.getReCords();
     }
 }

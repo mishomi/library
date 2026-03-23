@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 
 public class Record extends Transaction implements Describeable {
 
-
     private LocalDateTime borrowDate;
     private LocalDateTime returnDate;
 
