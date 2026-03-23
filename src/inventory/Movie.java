@@ -19,11 +19,10 @@ public class Movie extends Inventory implements ItemWithPrice, BorrowableItem {
     }
 
     @Override
-    public void bookItem(Customer customer) {
+    public void bookItem(Customer customer) throws ItemUnavailableException{
 
         if (this.getSupervisor() == null) {
-            System.out.println("sorry, movie not available!");
-            return;
+            throw new ItemUnavailableException("Sorry, movie not available!");
         }
 
         if (customer.getOutstandingFees().intValue() > 0) {
@@ -31,19 +30,17 @@ public class Movie extends Inventory implements ItemWithPrice, BorrowableItem {
                 customer.setMoney(customer.getMoney().subtract(customer.getOutstandingFees()));
                 customer.setOutstandingFees(BigDecimal.valueOf(0));
             } else {
-                System.out.println("pay your fine first");
-                return;
+                throw new OutstandingFeesException("Pay your fine first");
             }
         }
 
         if (customer.getAge() < minimumRequiredAge) {
-            System.out.println("sorry, choose a more age appropriate movie");
-            return;
+            throw new NotOldEnoughException("Sorry, choose a more age appropriate movie");
+
         }
 
         if (customer.getMoney().intValue() < price.intValue()) {
-            System.out.println("Not enough money");
-            return;
+            throw new InsufficientFundsException("Not enough money");
         }
 
         customer.setMoney(customer.getMoney().subtract(price));

@@ -20,7 +20,7 @@ public abstract class Inventory {
         genre.addBook(this);
     }
 
-    public abstract void bookItem(Customer customer);
+    public abstract void bookItem(Customer customer) throws ItemUnavailableException;
 
     public abstract void returnItem();
 

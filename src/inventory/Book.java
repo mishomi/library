@@ -17,19 +17,17 @@ public class Book extends Inventory implements ItemWithPrice, BorrowableItem {
     }
 
     @Override
-    public void bookItem(Customer customer) {
+    public void bookItem(Customer customer) throws ItemUnavailableException{
 
         if (this.getSupervisor() == null) {
-            System.out.println("sorry, book not available!");
-            return;
+            throw new ItemUnavailableException("Sorry, book not available!");
         }
         if (customer.getOutstandingFees().intValue() > 0) {
             if (customer.getMoney().intValue() >= customer.getOutstandingFees().intValue()) {
                 customer.setMoney(customer.getMoney().subtract(customer.getOutstandingFees()));
                 customer.setOutstandingFees(BigDecimal.valueOf(0));
             } else {
-                System.out.println("pay your fine first");
-                return;
+                throw new OutstandingFeesException("pay your fine first");
             }
         }
         if (customer.getMoney().compareTo(price) >= 0) {
@@ -37,7 +35,7 @@ public class Book extends Inventory implements ItemWithPrice, BorrowableItem {
             getSupervisor().removeInventoryItem(this);
             System.out.println("thanks, enjoy!");
         } else {
-            System.out.println("sorry, you dont have enough funds");
+            throw new InsufficientFundsException("Sorry, you don't have enough funds");
         }
     }
 

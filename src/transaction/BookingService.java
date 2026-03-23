@@ -1,6 +1,8 @@
 package transaction;
 
 import inventory.Inventory;
+import inventory.ItemUnavailableException;
+import inventory.NotOldEnoughException;
 import person.Customer;
 
 public class BookingService {
@@ -13,7 +15,14 @@ public class BookingService {
         recordsPointer = 0;
     }
 
-    public void book(Customer customer, Inventory inventory) {
+    public void book(Customer customer, Inventory inventory) throws ItemUnavailableException {
+        for (int i = 0; i < recordsPointer; i++) {
+            if (records[i].getCustomer() == customer
+                    && records[i].getInventory() == inventory
+                    && records[i].getReturnDate() == null) {
+                throw new NotOldEnoughException("This item is already borrowed by this customer");
+            }
+        }
         inventory.bookItem(customer);
         customer.takeItem(inventory);
         if (recordsPointer >= records.length) {

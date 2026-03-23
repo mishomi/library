@@ -17,15 +17,14 @@ public class EBook extends Inventory implements BorrowableItem {
     }
 
     @Override
-    public void bookItem(Customer customer) {
+    public void bookItem(Customer customer) throws ItemUnavailableException{
 
         if (customer.getOutstandingFees().intValue() > 0) {
             if (customer.getMoney().intValue() >= customer.getOutstandingFees().intValue()) {
                 customer.setMoney(customer.getMoney().subtract(customer.getOutstandingFees()));
                 customer.setOutstandingFees(BigDecimal.valueOf(0));
             } else {
-                System.out.println("pay your fine first");
-                return;
+                throw new OutstandingFeesException("Pay your fine first");
             }
         }
         System.out.println("Download your E-inventory.Book here: " + link);

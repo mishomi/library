@@ -4,8 +4,7 @@ import person.Customer;
 
 public interface BorrowableItem {
 
-    void bookItem(Customer customer);
+    void bookItem(Customer customer) throws ItemUnavailableException;
 
     void returnItem();
-
 }

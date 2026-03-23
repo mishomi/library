@@ -1,12 +1,10 @@
-import inventory.Book;
-import inventory.EBook;
-import inventory.Genre;
-import inventory.Movie;
+import inventory.*;
 import organization.Library;
 import organization.Publisher;
 import person.Author;
 import person.Customer;
 import transaction.BookingService;
+import transaction.LibrarySession;
 import workers.Custodian;
 import workers.Receptionist;
 import workers.Supervisor;
@@ -14,7 +12,7 @@ import workers.Supervisor;
 import java.math.BigDecimal;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
 
         Genre genre = new Genre("basic_genre");
         Publisher publisher = new Publisher("publisherName", "Georgia");
@@ -48,18 +46,36 @@ public class Main {
         supervisor.addInventoryItem(movie);
         supervisor.addInventoryItem(eBook);
 
-        Customer customer = new Customer("bob", value2, 20);
+        Customer customer = new Customer("john", value2, 20);
 
         library.addCustomer(customer);
 
-        bookingService.book(customer, book);
-        bookingService.book(customer, movie);
-        bookingService.book(customer, eBook);
+        try(LibrarySession librarySession = new LibrarySession("session 1")){
+            bookingService.book(customer, book);
+            bookingService.book(customer, movie);
+            bookingService.book(customer, eBook);
 
-        bookingService.returnItem(customer, book);
-        bookingService.returnItem(customer, movie);
-        bookingService.returnItem(customer, eBook);
-        System.out.println(BookingService.getOutstandingItemsCount());
-        BookingService.getReCords();
+            bookingService.returnItem(customer, book);
+            bookingService.returnItem(customer, movie);
+            bookingService.returnItem(customer, eBook);
+
+            librarySession.log("Finished transactions successfully");
+        }
+        catch (ItemUnavailableException e) {
+            System.out.println("Checked exception handled: " + e.getMessage());
+        }
+        catch (RuntimeException e) {
+            System.out.println("Runtime error: " + e.getMessage());
+        }
+
+//        bookingService.book(customer, book);
+//        bookingService.book(customer, movie);
+//        bookingService.book(customer, eBook);
+//
+//        bookingService.returnItem(customer, book);
+//        bookingService.returnItem(customer, movie);
+//        bookingService.returnItem(customer, eBook);
+//        System.out.println(BookingService.getOutstandingItemsCount());
+//        BookingService.getReCords();
     }
 }
