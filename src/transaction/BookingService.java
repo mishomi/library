@@ -20,7 +20,7 @@ public class BookingService {
             if (records[i].getCustomer() == customer
                     && records[i].getInventory() == inventory
                     && records[i].getReturnDate() == null) {
-                throw new NotOldEnoughException("This item is already borrowed by this customer");
+                throw new NotAvailableException("This item is already borrowed by this customer");
             }
         }
         inventory.bookItem(customer);

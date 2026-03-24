@@ -64,8 +64,8 @@ public class Main {
         catch (ItemUnavailableException e) {
             System.out.println("Checked exception handled: " + e.getMessage());
         }
-        catch (RuntimeException e) {
-            System.out.println("Runtime error: " + e.getMessage());
+        finally {
+            System.out.println("completed execution");
         }
     }
 }
