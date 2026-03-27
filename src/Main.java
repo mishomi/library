@@ -46,9 +46,32 @@ public class Main {
         supervisor.addInventoryItem(movie);
         supervisor.addInventoryItem(eBook);
 
-        Customer customer = new Customer("john", value2, 20);
+        Customer customer = new Customer("john", value2, 20, library);
 
-        library.addCustomer(customer);
+        System.out.println("Library inventory empty: " + library.isInventoryEmpty());
+        System.out.println("Genre empty: " + genre.getBooksInThisGenre().isEmpty());
+        System.out.println("Publisher empty: " + publisher.getPublishedBooks().isEmpty());
+        System.out.println("Booking records empty: " + bookingService.getOutstandingItemsCount());
+        System.out.println("Library inventory size: " + library.getInventorySize());
+        System.out.println("Workers size: " + library.getWorkersSize());
+        System.out.println("Customers size: " + library.getCustomersSize());
+        System.out.println("Genre size: " + genre.getBooksInThisGenre().size());
+        System.out.println("Publisher size: " + publisher.getPublishedBooks().size());
+        System.out.println("First library item: " + library.getFirstInventoryItem().getName());
+        System.out.println("First genre item: " + genre.getFirstItem().getName());
+        System.out.println("First publisher item: " + publisher.getFirstItem().getName());
+
+        for (Inventory item : library.getInventory().getItems()) {
+            System.out.println(item.getName());
+        }
+
+        for (Inventory item : genre.getBooksInThisGenre()) {
+            System.out.println(item.getName());
+        }
+
+        for (Inventory item : publisher.getPublishedBooks()) {
+            System.out.println(item.getName());
+        }
 
         try(LibrarySession librarySession = new LibrarySession("session 1")){
             bookingService.book(customer, book);

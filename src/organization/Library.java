@@ -4,96 +4,77 @@ import inventory.Inventory;
 import person.Customer;
 import workers.Worker;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Library extends Organization {
 
-    private Inventory[] inventory;
-    private Worker[] workers;
-    private Customer[] customers;
+    private GenericOrganization<Inventory> inventory;
+    private GenericOrganization<Worker> workers;
+    private GenericOrganization<Customer> customers;
 
-    private int inventoryCount;
-    private int workerCount;
     private int customerCount;
 
     public Library(String name) {
         super(name);
-        this.inventory = new Inventory[50];
-        this.workers = new Worker[20];
-        this.customers = new Customer[50];
-        this.inventoryCount = 0;
-        this.workerCount = 0;
+        this.inventory = new GenericOrganization<>();
+        this.workers = new GenericOrganization<>();
+        this.customers = new GenericOrganization<>();
         this.customerCount = 0;
     }
 
     public void addInventoryItem(Inventory inventoryItem) {
 
-        if (inventoryCount >= inventory.length) {
-            Inventory[] temp = new Inventory[inventory.length * 2];
-            System.arraycopy(inventory, 0, temp, 0, inventory.length);
-            inventory = temp;
+        if (inventory.contains(inventoryItem)){
+            System.out.println("item already accounted for");
+            return;
         }
-        inventory[inventoryCount] = inventoryItem;
-        inventoryCount++;
+        inventory.add(inventoryItem);
     }
 
-    public void removeInventoryItem(Inventory inventoryitem) {
+    public void removeInventoryItem(Inventory inventoryItem) {
 
-        for (int i = 0; i < inventoryCount; i++) {
-            if (inventory[i] == inventoryitem) {
-                for (int j = i; j < inventoryCount - 1; j++) {
-                    inventory[j] = inventory[j + 1];
-                }
-                return;
-            }
+        if (!inventory.contains(inventoryItem)){
+            System.out.println("item no longer i inventory");
+            return;
         }
-        System.out.println("no such item exists");
+        inventory.remove(inventoryItem);
     }
 
     public void addWorker(Worker libraryWorker) {
 
-        if (workerCount >= workers.length) {
-            Worker[] temp = new Worker[workers.length * 2];
-            System.arraycopy(workers, 0, temp, 0, workers.length);
-            workers = temp;
+        if (workers.contains(libraryWorker)){
+            System.out.println("worker already in the books");
+            return;
         }
-        workers[workerCount] = libraryWorker;
-        workerCount++;
+        workers.add(libraryWorker);
     }
 
     public void removeWorker(Worker libraryWorker) {
 
-        for (int i = 0; i < workerCount; i++) {
-            if (workers[i] == libraryWorker) {
-                for (int j = i; j < workerCount - 1; j++) {
-                    workers[j] = workers[j + 1];
-                }
-                return;
-            }
+        if (!workers.contains(libraryWorker)){
+            System.out.println("worker no longer works here");
+            return;
         }
-        System.out.println("no such worker in library system");
+        workers.remove(libraryWorker);
     }
 
     public void addCustomer(Customer customer) {
 
-        if (customerCount >= customers.length) {
-            Customer[] temp = new Customer[customers.length * 2];
-            System.arraycopy(customers, 0, temp, 0, customers.length);
-            customers = temp;
+        if (customers.contains(customer)){
+            System.out.println("customer already in the books");
+            return;
         }
-        customers[customerCount] = customer;
-        customerCount++;
+        customers.add(customer);
     }
 
     public void removeCustomer(Customer customer) {
 
-        for (int i = 0; i < customerCount; i++) {
-            if (customers[i] == customer) {
-                for (int j = i; j < customerCount - 1; j++) {
-                    customers[j] = customers[j + 1];
-                }
-                return;
-            }
+        if (!customers.contains(customer)){
+            System.out.println("customer no longer shops here");
+            return;
         }
-        System.out.println("no such customer exists");
+        customers.remove(customer);
     }
 
     @Override
@@ -115,32 +96,89 @@ public class Library extends Organization {
         return "Library[name=" + name + "]";
     }
 
-    public Inventory[] getInventory() {
+    public GenericOrganization<Inventory> getInventory() {
         return inventory;
     }
 
-    public void setInventory(Inventory[] inventory) {
+    public void setInventory(GenericOrganization<Inventory> inventory) {
         this.inventory = inventory;
     }
 
-    public Worker[] getWorkers() {
+    public GenericOrganization<Worker> getWorkers() {
         return workers;
     }
 
-    public void setWorkers(Worker[] workers) {
+    public void setWorkers(GenericOrganization<Worker> workers) {
 
         this.workers = workers;
     }
 
-    public Customer[] getCustomers() {
+    public GenericOrganization<Customer> getCustomers() {
         return customers;
     }
 
-    public void setCustomers(Customer[] customers) {
+    public void setCustomers(GenericOrganization<Customer> customers) {
         this.customers = customers;
     }
 
     public String getDescription() {
         return "Library named " + name;
+    }
+
+    public int getInventorySize(){
+        return inventory.size();
+    }
+
+    public boolean isInventoryEmpty(){
+        return inventory.isEmpty();
+    }
+
+    public Inventory getInventoryItemAtIndex(int n){
+        return inventory.get(n);
+    }
+
+    public Inventory getFirstInventoryItem(){
+        if (inventory.isEmpty()){
+            return null;
+        }
+        return inventory.get(0);
+    }
+
+    public int getWorkersSize(){
+        return workers.size();
+    }
+
+    public boolean isWorkersEmpty(){
+        return workers.isEmpty();
+    }
+
+    public Worker getWorkerAtIndex(int n){
+        return workers.get(n);
+    }
+
+    public Worker getFirsWorker(){
+        if (workers.isEmpty()){
+            return null;
+        }
+        return workers.get(0);
+    }
+
+    public int getCustomersSize(){
+        return customers.size();
+    }
+
+    public boolean isCustomersEmpty(){
+        return customers.isEmpty();
+    }
+
+    public Customer getCustomerAtIndex(int n){
+        return customers.get(n);
+    }
+
+    public Customer getFirstCustomer(){
+        if (customers.isEmpty()){
+            return null;
+        }
+        return customers.get(0);
     }
 }

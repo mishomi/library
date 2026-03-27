@@ -1,46 +1,45 @@
 package workers;
 
 import inventory.Inventory;
+import organization.Library;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Supervisor extends Worker implements StaffMember {
 
-    private Inventory[] assignedInventory;
-    private int pointer = 0;
+    private List<Inventory> assignedInventory;
 
     public Supervisor(int salary, String name) {
         super(salary, name);
-        this.assignedInventory = new Inventory[20];
+        this.assignedInventory = new ArrayList<>();
     }
 
     public void addInventoryItem(Inventory inventory) {
 
-        for (int i = 0; i < pointer; i++) {
-            if (assignedInventory[i] == inventory) {
-                System.out.println("book already assigned");
-                return;
-            }
+        if (assignedInventory.contains(inventory)){
+            System.out.println("inventory already accounted for");
+            return;
         }
-        if (pointer >= assignedInventory.length) {
-            Inventory[] temp = new Inventory[assignedInventory.length * 2];
-            System.arraycopy(assignedInventory, 0, temp, 0, assignedInventory.length);
-            assignedInventory = temp;
-        }
-        assignedInventory[pointer] = inventory;
-        pointer++;
+        assignedInventory.add(inventory);
+
     }
 
     public void removeInventoryItem(Inventory inventory) {
 
-        for (int i = 0; i < pointer; i++) {
-            if (assignedInventory[i] == inventory) {
-                for (int j = i; j < pointer - 1; j++) {
-                    assignedInventory[j] = assignedInventory[j + 1];
-                }
-                pointer -= 1;
-                return;
-            }
+        if (!assignedInventory.contains(inventory)){
+            System.out.println("item not in inventory");
+            return;
         }
-        System.out.println("no such inventory exists");
+        assignedInventory.remove(inventory);
+    }
+
+    public List<Inventory> getAssignedInventory() {
+        return assignedInventory;
+    }
+
+    public void setAssignedInventory(List<Inventory> assignedInventory) {
+        this.assignedInventory = assignedInventory;
     }
 
     @Override

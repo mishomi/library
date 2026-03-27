@@ -1,32 +1,33 @@
 package inventory;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 public class Genre {
 
     protected String name;
-    private Inventory[] booksInThisGenre;
-    private int pointer;
+    private Set<Inventory> booksInThisGenre;
 
     public Genre(String name) {
         this.name = name;
-        this.booksInThisGenre = new Inventory[20];
-        this.pointer = 0;
+        this.booksInThisGenre = new LinkedHashSet<>();
     }
 
     public void addBook(Inventory inventory) {
 
-        for (int i = 0; i < pointer; i++) {
-            if (booksInThisGenre[i] == inventory) {
-                System.out.println("book already accounted for");
-                return;
-            }
+        if (booksInThisGenre.contains(inventory)) {
+            System.out.println("book already accounted for");
+            return;
         }
-        if (pointer >= booksInThisGenre.length) {
-            Inventory[] temp = new Inventory[booksInThisGenre.length * 2];
-            System.arraycopy(booksInThisGenre, 0, temp, 0, booksInThisGenre.length);
-            booksInThisGenre = temp;
+        booksInThisGenre.add(inventory);
+    }
+
+    public void removeBook(Inventory inventory){
+        if (!booksInThisGenre.contains(inventory)){
+            System.out.println("book already removed");
+            return;
         }
-        booksInThisGenre[pointer] = inventory;
-        pointer++;
+        booksInThisGenre.remove(inventory);
     }
 
     public String getName() {
@@ -37,11 +38,18 @@ public class Genre {
         this.name = name;
     }
 
-    public Inventory[] getBooksInThisGenre() {
+    public Set<Inventory> getBooksInThisGenre() {
         return booksInThisGenre;
     }
 
-    public void setBooksInThisGenre(Inventory[] booksInThisGenre) {
+    public void setBooksInThisGenre(Set<Inventory> booksInThisGenre) {
         this.booksInThisGenre = booksInThisGenre;
+    }
+
+    public Inventory getFirstItem() {
+        if (booksInThisGenre.isEmpty())
+            return null;
+        else
+            return booksInThisGenre.iterator().next();
     }
 }

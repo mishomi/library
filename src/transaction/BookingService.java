@@ -5,55 +5,64 @@ import inventory.ItemUnavailableException;
 import inventory.NotOldEnoughException;
 import person.Customer;
 
-public class BookingService {
+import java.util.HashMap;
+import java.util.Map;
 
-    private static transaction.Record[] records;
+public class BookingService {
+    public Log log = new Log();
+    private static Map<BorrowKey, Record> records;
     private static int recordsPointer;
 
     static {
-        records = new Record[20];
+        records = new HashMap<>();
         recordsPointer = 0;
     }
 
     public void book(Customer customer, Inventory inventory) throws ItemUnavailableException {
-        for (int i = 0; i < recordsPointer; i++) {
-            if (records[i].getCustomer() == customer
-                    && records[i].getInventory() == inventory
-                    && records[i].getReturnDate() == null) {
+        BorrowKey borrowKey = new BorrowKey(customer, inventory);
+        if (records.containsKey(borrowKey) ){
+            Record existing = records.get(borrowKey);
+            if (existing.getReturnDate() == null){
                 throw new NotAvailableException("This item is already borrowed by this customer");
             }
         }
+
         inventory.bookItem(customer);
         customer.takeItem(inventory);
-        if (recordsPointer >= records.length) {
-            transaction.Record[] temp = new transaction.Record[records.length * 2];
-            System.arraycopy(records, 0, temp, 0, records.length);
-            records = temp;
-        }
-        records[recordsPointer] = new Record(customer, inventory);
-        recordsPointer++;
+        Record record = new Record(customer, inventory);
+        log.add(new Record(customer, inventory));
+        records.put(borrowKey, record);
     }
 
     public void returnItem(Customer customer, Inventory inventory) {
-
+        BorrowKey borrowKey = new BorrowKey(customer, inventory);
+        Record record = records.get(borrowKey);
+        if (record == null){
+            System.out.println("item not on record");
+            return;
+        }
         inventory.returnItem();
         customer.returnItem(inventory);
-        for (int i = 0; i < recordsPointer; i++) {
-            if (records[i].getCustomer() == customer && records[i].getInventory() == inventory && records[i].getReturnDate() == null) {
-                records[i].returnItem();
-                break;
-            }
-        }
+        record.returnItem();
+        log.add(new Record(customer, inventory));
+        records.remove(borrowKey);
     }
 
     public static int getOutstandingItemsCount() {
-        return records.length;
+        return records.size();
+    }
+
+    public Record getFirstRecord(){
+        if (records.isEmpty()){
+            System.out.println("no records to date");
+            return null;
+        }
+        return records.values().iterator().next();
     }
 
     public static void getReCords() {
-
-        for (int i = 0; i < recordsPointer; i++) {
-            System.out.println("book name: " + records[i].getInventory().getName() + ", customer name: " + records[i].getCustomer().getName());
+        for (Map.Entry<BorrowKey, Record> entry : records.entrySet()) {
+            System.out.println(entry.getValue().getCustomer().getName() + " borrowed " + entry.getValue().getInventory().getName());
         }
     }
 }
