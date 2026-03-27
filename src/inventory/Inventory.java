@@ -67,4 +67,22 @@ public abstract class Inventory {
     public void setGenre(Genre genre) {
         this.genre = genre;
     }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (!(object instanceof Inventory)) return false;
+
+        Inventory inv = (Inventory) object;
+
+        if (name != null ? !name.equals(inv.name) : inv.name != null) return false;
+        return author != null ? author.equals(inv.author) : inv.author == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (author != null ? author.hashCode() : 0);
+        return result;
+    }
 }
