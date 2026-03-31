@@ -12,7 +12,7 @@ public class EBook extends Inventory implements BorrowableItem {
     private String link;
 
     public EBook(String name, Author author, Supervisor supervisor, String link, Publisher publisher, Genre genre) {
-        super(name, author, supervisor, publisher, genre);
+        super(name, author, supervisor, publisher, genre, ItemType.EBOOK);
         this.link = link;
     }
 

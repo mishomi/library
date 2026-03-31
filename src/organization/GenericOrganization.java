@@ -17,7 +17,7 @@ public class GenericOrganization<T> {
         return items.remove(item);
     }
 
-    public boolean contains(T item){
+    public boolean contains(T item) {
         return items.contains(item);
     }
 

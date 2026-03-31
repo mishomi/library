@@ -4,6 +4,7 @@ import organization.Publisher;
 import person.Author;
 import person.Customer;
 import transaction.BookingService;
+import transaction.BorrowRecord;
 import transaction.LibrarySession;
 import workers.Custodian;
 import workers.Receptionist;
@@ -95,6 +96,12 @@ public class Main {
         for (Inventory item : publisher.getPublishedBooks()) {
             System.out.println(item.getName());
         }
+        BorrowRecord borrowRecord = new BorrowRecord(
+                customer.getName(),
+                book.getName(),
+                java.time.LocalDateTime.now().toString()
+        );
+        System.out.println(borrowRecord);
 
         try (LibrarySession librarySession = new LibrarySession("session 1")) {
             bookingService.book(customer, book);

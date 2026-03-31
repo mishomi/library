@@ -12,13 +12,15 @@ public abstract class Inventory {
     private Supervisor supervisor;
     private Publisher publisher;
     private Genre genre;
+    private ItemType itemType;
 
-    public Inventory(String name, Author author, Supervisor supervisor, Publisher publisher, Genre genre) {
+    public Inventory(String name, Author author, Supervisor supervisor, Publisher publisher, Genre genre, ItemType itemType) {
         this.name = name;
         this.author = author;
         this.supervisor = supervisor;
         this.publisher = publisher;
         this.genre = genre;
+        this.itemType = itemType;
         publisher.addInventory(this);
         genre.addBook(this);
     }
