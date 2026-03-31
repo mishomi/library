@@ -2,6 +2,9 @@ package organization;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 public class GenericOrganization<T> {
     private final List<T> items = new ArrayList<>();
@@ -36,5 +39,29 @@ public class GenericOrganization<T> {
 
     public List<T> getItems() {
         return items;
+    }
+
+    public void forEachItem(Consumer<T> action) {
+        for (T item : items) {
+            action.accept(item);
+        }
+    }
+
+    public List<T> filterItems(Predicate<T> predicate) {
+        List<T> result = new ArrayList<>();
+        for (T item : items) {
+            if (predicate.test(item)) {
+                result.add(item);
+            }
+        }
+        return result;
+    }
+
+    public <R> List<R> mapItems(Function<T, R> mapper) {
+        List<R> result = new ArrayList<>();
+        for (T item : items) {
+            result.add(mapper.apply(item));
+        }
+        return result;
     }
 }

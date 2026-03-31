@@ -10,9 +10,10 @@ import workers.Receptionist;
 import workers.Supervisor;
 
 import java.math.BigDecimal;
+import java.util.function.*;
 
 public class Main {
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
 
         Genre genre = new Genre("basic_genre");
         Publisher publisher = new Publisher("publisherName", "Georgia");
@@ -48,6 +49,28 @@ public class Main {
 
         Customer customer = new Customer("john", value2, 20, library);
 
+        Runnable startup = () -> System.out.println("Starting library simulatin");
+        startup.run();
+
+        Supplier<String> welcomeMessage = () -> "Welcome to the library";
+        System.out.println(welcomeMessage.get());
+
+        Consumer<Inventory> printInventoryItem = item -> System.out.println("Inventory item: " + item.getName());
+        library.getInventory().forEachItem(printInventoryItem);
+
+        Predicate<Inventory> isPricedItemOver10 = item -> item instanceof ItemWithPrice && ((ItemWithPrice) item).getPrice().compareTo(new BigDecimal("10")) > 0;
+
+        System.out.println("Items that costs above 10:");
+        library.getInventory().filterItems(isPricedItemOver10).forEach(item -> System.out.println(item.getName()));
+
+        Function<Inventory, String> inventoryDescription = item -> item.getName() + " by " + item.getAuthor().getName();
+
+        System.out.println("Descriptions:");
+        library.getInventory().mapItems(inventoryDescription).forEach(System.out::println);
+
+        BiConsumer<Customer, Inventory> borrowingMessage = (cust, item) -> System.out.println(cust.getName() + " is about to borrow " + item.getName());
+        borrowingMessage.accept(customer, book);
+
         System.out.println("Library inventory empty: " + library.isInventoryEmpty());
         System.out.println("Genre empty: " + genre.getBooksInThisGenre().isEmpty());
         System.out.println("Publisher empty: " + publisher.getPublishedBooks().isEmpty());
@@ -73,7 +96,7 @@ public class Main {
             System.out.println(item.getName());
         }
 
-        try(LibrarySession librarySession = new LibrarySession("session 1")){
+        try (LibrarySession librarySession = new LibrarySession("session 1")) {
             bookingService.book(customer, book);
             bookingService.book(customer, movie);
             bookingService.book(customer, eBook);
@@ -83,11 +106,9 @@ public class Main {
             bookingService.returnItem(customer, eBook);
 
             librarySession.log("Finished transactions successfully");
-        }
-        catch (ItemUnavailableException e) {
+        } catch (ItemUnavailableException e) {
             System.out.println("Checked exception handled: " + e.getMessage());
-        }
-        finally {
+        } finally {
             System.out.println("completed execution");
         }
     }
