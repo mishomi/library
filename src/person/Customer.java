@@ -15,6 +15,7 @@ public class Customer extends Person implements LibraryPeople {
     private List<Inventory> itemsCurrentlyInPossession;
     private Library library;
     private BigDecimal outstandingFees;
+    private PaymentStatus paymentStatus;
 
     public Customer(String name, BigDecimal money, int age, Library library) {
         super(name, age);
@@ -22,6 +23,7 @@ public class Customer extends Person implements LibraryPeople {
         this.money = money;
         this.age = age;
         this.library = library;
+        this.paymentStatus = PaymentStatus.PAID;
         if (!library.getCustomers().contains(this)){
             library.addCustomer(this);
         }
@@ -106,11 +108,15 @@ public class Customer extends Person implements LibraryPeople {
 
         this.outstandingFees = outstandingFees;
         if (outstandingFees.intValue() == 0) {
-            return;
+            paymentStatus = PaymentStatus.PAID;
         } else {
             if (this.getMoney().intValue() >= this.getOutstandingFees().intValue()) {
                 this.setMoney(this.getMoney().subtract(this.getOutstandingFees()));
                 this.outstandingFees = BigDecimal.valueOf(0);
+                paymentStatus = PaymentStatus.PAID;
+            }
+            else {
+                paymentStatus = PaymentStatus.UNPAID;
             }
         }
     }

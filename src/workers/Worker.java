@@ -4,10 +4,12 @@ public abstract class Worker implements StaffMember{
 
     private int salary;
     private String name;
+    private WorkerRole workerRole;
 
-    public Worker(int salary, String name) {
+    public Worker(int salary, String name, WorkerRole workerRole) {
         this.salary = salary;
         this.name = name;
+        this.workerRole = workerRole;
     }
 
     @Override

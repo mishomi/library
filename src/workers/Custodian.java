@@ -5,7 +5,7 @@ public class Custodian extends Worker implements StaffMember {
     private int supervisorId;
 
     public Custodian(int salary, String name, int supervisorId) {
-        super(salary, name);
+        super(salary, name, WorkerRole.CUSTODIAN);
         this.supervisorId = supervisorId;
     }
 

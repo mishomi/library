@@ -13,8 +13,7 @@ public class Movie extends Inventory implements ItemWithPrice, BorrowableItem {
     private int minimumRequiredAge;
 
     public Movie(String name, Author author, BigDecimal price, Supervisor supervisor, int minimumRequiredAge, Publisher publisher, Genre genre) {
-        super(name, author, supervisor, publisher, genre, ItemType.MOVIE);
-        this.price = price;
+        super(name, author, supervisor, publisher, genre, ItemType.MOVIE, price);
         this.minimumRequiredAge = minimumRequiredAge;
     }
 

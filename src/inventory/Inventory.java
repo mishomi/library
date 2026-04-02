@@ -5,6 +5,8 @@ import person.Customer;
 import organization.Publisher;
 import workers.Supervisor;
 
+import java.math.BigDecimal;
+
 public abstract class Inventory {
 
     private String name;
@@ -13,14 +15,15 @@ public abstract class Inventory {
     private Publisher publisher;
     private Genre genre;
     private ItemType itemType;
-
-    public Inventory(String name, Author author, Supervisor supervisor, Publisher publisher, Genre genre, ItemType itemType) {
+    private BigDecimal price;
+    public Inventory(String name, Author author, Supervisor supervisor, Publisher publisher, Genre genre, ItemType itemType, BigDecimal price) {
         this.name = name;
         this.author = author;
         this.supervisor = supervisor;
         this.publisher = publisher;
         this.genre = genre;
         this.itemType = itemType;
+        this.price = price;
         publisher.addInventory(this);
         genre.addBook(this);
     }
@@ -68,6 +71,14 @@ public abstract class Inventory {
 
     public void setGenre(Genre genre) {
         this.genre = genre;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 
     @Override

@@ -7,9 +7,10 @@ public class Genre {
 
     protected String name;
     private Set<Inventory> booksInThisGenre;
-
-    public Genre(String name) {
+    private GenreType genreType;
+    public Genre(String name, GenreType genreType) {
         this.name = name;
+        this.genreType = genreType;
         this.booksInThisGenre = new LinkedHashSet<>();
     }
 

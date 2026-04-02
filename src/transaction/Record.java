@@ -10,10 +10,12 @@ import java.time.LocalDateTime;
 public class Record extends Transaction implements Describeable {
     private LocalDateTime borrowDate;
     private LocalDateTime returnDate;
+    private TransactionStatus transactionStatus;
 
     public Record(Customer customer, Inventory inventory) {
         super(customer, inventory);
         this.borrowDate = LocalDateTime.now();
+        this.transactionStatus = TransactionStatus.BORROWED;
     }
 
     public void setCustomer(Customer customer) {
@@ -45,7 +47,10 @@ public class Record extends Transaction implements Describeable {
         returnDate = LocalDateTime.now();
         if (Duration.between(borrowDate, returnDate).toDays() > 30) {
             Fine fine = new Fine(BigDecimal.valueOf(20), customer);
+            transactionStatus = TransactionStatus.LATE;
+            return;
         }
+        transactionStatus = TransactionStatus.RETURNED;
     }
 
     @Override

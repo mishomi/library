@@ -5,7 +5,7 @@ public class Receptionist extends Worker implements StaffMember {
     private String knownLanguages;
 
     public Receptionist(int salary, String name, String knownLanguages) {
-        super(salary, name);
+        super(salary, name, WorkerRole.RECEPTIONIST);
         this.knownLanguages = knownLanguages;
     }
 

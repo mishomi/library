@@ -3,9 +3,7 @@ import organization.Library;
 import organization.Publisher;
 import person.Author;
 import person.Customer;
-import transaction.BookingService;
-import transaction.BorrowRecord;
-import transaction.LibrarySession;
+import transaction.*;
 import workers.Custodian;
 import workers.Receptionist;
 import workers.Supervisor;
@@ -16,7 +14,7 @@ import java.util.function.*;
 public class Main {
     public static void main(String[] args) {
 
-        Genre genre = new Genre("basic_genre");
+        Genre genre = new Genre("basic_genre", GenreType.THRILLER);
         Publisher publisher = new Publisher("publisherName", "Georgia");
         BigDecimal value1 = new BigDecimal("12.25");
         BigDecimal value2 = new BigDecimal("129.25");
@@ -84,6 +82,17 @@ public class Main {
         System.out.println("First library item: " + library.getFirstInventoryItem().getName());
         System.out.println("First genre item: " + genre.getFirstItem().getName());
         System.out.println("First publisher item: " + publisher.getFirstItem().getName());
+
+
+        BorrowValidator validator = (cust, item) ->
+                cust.getMoney().compareTo(item.getPrice()) >= 0;
+
+        System.out.println("can " + customer.getName() + " borrow: " + book.getName() + "?" + validator.canBorrow(customer, book));
+
+        NotificationService notificationService = (cust, message) ->
+                System.out.println("Notifying " + cust.getName() + ": " + message);
+
+        notificationService.notify(customer, "Your book is overdue!");
 
         for (Inventory item : library.getInventory().getItems()) {
             System.out.println(item.getName());

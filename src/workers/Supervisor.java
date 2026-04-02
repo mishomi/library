@@ -11,7 +11,7 @@ public class Supervisor extends Worker implements StaffMember {
     private List<Inventory> assignedInventory;
 
     public Supervisor(int salary, String name) {
-        super(salary, name);
+        super(salary, name, WorkerRole.SUPERVISOR);
         this.assignedInventory = new ArrayList<>();
     }
 
