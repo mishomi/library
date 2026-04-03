@@ -3,6 +3,7 @@ import organization.Library;
 import organization.Publisher;
 import person.Author;
 import person.Customer;
+import reflection.LibraryReflection;
 import transaction.*;
 import workers.Custodian;
 import workers.Receptionist;
@@ -10,6 +11,7 @@ import workers.Supervisor;
 
 import java.math.BigDecimal;
 import java.util.function.*;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -70,6 +72,30 @@ public class Main {
         BiConsumer<Customer, Inventory> borrowingMessage = (cust, item) -> System.out.println(cust.getName() + " is about to borrow " + item.getName());
         borrowingMessage.accept(customer, book);
 
+        System.out.println("item names: " +
+                library.getInventory().getItems().stream()
+                        .map(Inventory::getName)
+                        .collect(Collectors.joining(", ")));
+
+        System.out.println("Expensive items: " +
+                library.getInventory().getItems().stream()
+                        .filter(item -> item instanceof ItemWithPrice && ((ItemWithPrice) item).getPrice().compareTo(new BigDecimal("10")) > 0)
+                        .map(Inventory::getName)
+                        .toList());
+
+        System.out.println("Sorted item names: " +
+                library.getInventory().getItems().stream()
+                        .map(Inventory::getName)
+                        .sorted()
+                        .toList());
+
+        System.out.println("Inventory count: " + library.getInventory().getItems().stream().count());
+
+        System.out.println("Customer names:");
+        library.getCustomers().getItems().stream()
+                .map(Customer::getName)
+                .forEach(System.out::println);
+
         System.out.println("Library inventory empty: " + library.isInventoryEmpty());
         System.out.println("Genre empty: " + genre.getBooksInThisGenre().isEmpty());
         System.out.println("Publisher empty: " + publisher.getPublishedBooks().isEmpty());
@@ -111,6 +137,11 @@ public class Main {
                 java.time.LocalDateTime.now().toString()
         );
         System.out.println(borrowRecord);
+
+        LibraryReflection.inspectClass(Book.class);
+        LibraryReflection.handleCustomAnnotations(Book.class);
+        LibraryReflection.handleCustomAnnotations(Library.class);
+        LibraryReflection.createObjectAndCallMethodUsingReflection();
 
         try (LibrarySession librarySession = new LibrarySession("session 1")) {
             bookingService.book(customer, book);

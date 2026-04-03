@@ -27,8 +27,6 @@ public class Log<T> {
     }
 
     public void printAll() {
-        for (T action : actions) {
-            System.out.println(action);
-        }
+        actions.stream().forEach(System.out::println);
     }
 }

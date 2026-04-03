@@ -48,9 +48,6 @@ public class Genre {
     }
 
     public Inventory getFirstItem() {
-        if (booksInThisGenre.isEmpty())
-            return null;
-        else
-            return booksInThisGenre.iterator().next();
+        return booksInThisGenre.stream().findFirst().orElse(null);
     }
 }

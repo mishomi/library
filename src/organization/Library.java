@@ -1,5 +1,6 @@
 package organization;
 
+import annotations.LibraryFeature;
 import inventory.Inventory;
 import person.Customer;
 import workers.Worker;
@@ -121,6 +122,7 @@ public class Library extends Organization {
         this.customers = customers;
     }
 
+    @LibraryFeature("Returns a readable library description")
     public String getDescription() {
         return "Library named " + name;
     }
@@ -138,10 +140,7 @@ public class Library extends Organization {
     }
 
     public Inventory getFirstInventoryItem(){
-        if (inventory.isEmpty()){
-            return null;
-        }
-        return inventory.get(0);
+        return inventory.getItems().stream().findFirst().orElse(null);
     }
 
     public int getWorkersSize(){
@@ -157,10 +156,8 @@ public class Library extends Organization {
     }
 
     public Worker getFirsWorker(){
-        if (workers.isEmpty()){
-            return null;
-        }
-        return workers.get(0);
+        return workers.getItems().stream().findFirst().orElse(null);
+
     }
 
     public int getCustomersSize(){
@@ -176,9 +173,7 @@ public class Library extends Organization {
     }
 
     public Customer getFirstCustomer(){
-        if (customers.isEmpty()){
-            return null;
-        }
-        return customers.get(0);
+        return customers.getItems().stream().findFirst().orElse(null);
+
     }
 }

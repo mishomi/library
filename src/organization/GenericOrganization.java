@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class GenericOrganization<T> {
     private final List<T> items = new ArrayList<>();
@@ -42,26 +43,14 @@ public class GenericOrganization<T> {
     }
 
     public void forEachItem(Consumer<T> action) {
-        for (T item : items) {
-            action.accept(item);
-        }
+        items.stream().forEach(action);
     }
 
     public List<T> filterItems(Predicate<T> predicate) {
-        List<T> result = new ArrayList<>();
-        for (T item : items) {
-            if (predicate.test(item)) {
-                result.add(item);
-            }
-        }
-        return result;
+        return items.stream().filter(predicate).collect(Collectors.toList());
     }
 
     public <R> List<R> mapItems(Function<T, R> mapper) {
-        List<R> result = new ArrayList<>();
-        for (T item : items) {
-            result.add(mapper.apply(item));
-        }
-        return result;
+        return items.stream().map(mapper).collect(Collectors.toList());
     }
 }

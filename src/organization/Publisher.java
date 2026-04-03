@@ -60,6 +60,6 @@ public class Publisher extends Organization {
     }
 
     public Inventory getFirstItem() {
-        return publishedBooks.isEmpty() ? null : publishedBooks.iterator().next();
+        return publishedBooks.stream().findFirst().orElse(null);
     }
 }

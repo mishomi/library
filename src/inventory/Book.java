@@ -1,5 +1,6 @@
 package inventory;
 
+import annotations.LibraryFeature;
 import person.Author;
 import person.Customer;
 import organization.Publisher;
@@ -7,9 +8,8 @@ import workers.Supervisor;
 
 import java.math.BigDecimal;
 
+@LibraryFeature("Physical borrowable item")
 public class Book extends Inventory implements ItemWithPrice, BorrowableItem {
-
-    private BigDecimal price;
 
     public Book(String name, Author author, Supervisor supervisor, BigDecimal price, Publisher publisher, Genre genre) {
         super(name, author, supervisor, publisher, genre, ItemType.BOOK, price);
@@ -29,8 +29,8 @@ public class Book extends Inventory implements ItemWithPrice, BorrowableItem {
                 throw new OutstandingFeesException("pay your fine first");
             }
         }
-        if (customer.getMoney().compareTo(price) >= 0) {
-            customer.setMoney(customer.getMoney().subtract(price));
+        if (customer.getMoney().compareTo(this.getPrice()) >= 0) {
+            customer.setMoney(customer.getMoney().subtract(this.getPrice()));
             getSupervisor().removeInventoryItem(this);
             System.out.println("thanks, enjoy!");
         } else {
@@ -45,13 +45,4 @@ public class Book extends Inventory implements ItemWithPrice, BorrowableItem {
         System.out.println("than you, come again!");
     }
 
-    @Override
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    @Override
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
 }

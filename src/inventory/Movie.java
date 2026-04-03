@@ -9,7 +9,6 @@ import java.math.BigDecimal;
 
 public class Movie extends Inventory implements ItemWithPrice, BorrowableItem {
 
-    private BigDecimal price;
     private int minimumRequiredAge;
 
     public Movie(String name, Author author, BigDecimal price, Supervisor supervisor, int minimumRequiredAge, Publisher publisher, Genre genre) {
@@ -38,11 +37,11 @@ public class Movie extends Inventory implements ItemWithPrice, BorrowableItem {
 
         }
 
-        if (customer.getMoney().intValue() < price.intValue()) {
+        if (customer.getMoney().intValue() < this.getPrice().intValue()) {
             throw new InsufficientFundsException("Not enough money");
         }
 
-        customer.setMoney(customer.getMoney().subtract(price));
+        customer.setMoney(customer.getMoney().subtract(this.getPrice()));
         getSupervisor().removeInventoryItem(this);
 
         System.out.println("thank you, enjoy!");
@@ -53,16 +52,6 @@ public class Movie extends Inventory implements ItemWithPrice, BorrowableItem {
 
         getSupervisor().addInventoryItem(this);
         System.out.println("thank you, come again!");
-    }
-
-    @Override
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    @Override
-    public void setPrice(BigDecimal price) {
-        this.price = price;
     }
 
     public int getMinimumRequiredAge() {

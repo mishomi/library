@@ -57,12 +57,11 @@ public class BookingService {
             System.out.println("no records to date");
             return null;
         }
-        return records.values().iterator().next();
+        return records.values().stream().findFirst().orElse(null);
     }
 
     public static void getReCords() {
-        for (Map.Entry<BorrowKey, Record> entry : records.entrySet()) {
-            System.out.println(entry.getValue().getCustomer().getName() + " borrowed " + entry.getValue().getInventory().getName());
-        }
+        records.entrySet().stream().forEach(entry -> System.out.println(entry.getValue().getCustomer().getName()
+         + "borrowed " + entry.getValue().getInventory().getName()));
     }
 }
