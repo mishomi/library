@@ -43,14 +43,18 @@ public class GenericOrganization<T> {
     }
 
     public void forEachItem(Consumer<T> action) {
-        items.stream().forEach(action);
+        items.forEach(action);
     }
 
     public List<T> filterItems(Predicate<T> predicate) {
-        return items.stream().filter(predicate).collect(Collectors.toList());
+        return items.stream()
+                .filter(predicate)
+                .collect(Collectors.toList());
     }
 
     public <R> List<R> mapItems(Function<T, R> mapper) {
-        return items.stream().map(mapper).collect(Collectors.toList());
+        return items.stream()
+                .map(mapper)
+                .collect(Collectors.toList());
     }
 }

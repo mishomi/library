@@ -48,6 +48,8 @@ public class Genre {
     }
 
     public Inventory getFirstItem() {
-        return booksInThisGenre.stream().findFirst().orElse(null);
+        return booksInThisGenre.stream()
+                .findFirst()
+                .orElse(null);
     }
 }

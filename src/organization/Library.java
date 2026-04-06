@@ -140,7 +140,9 @@ public class Library extends Organization {
     }
 
     public Inventory getFirstInventoryItem(){
-        return inventory.getItems().stream().findFirst().orElse(null);
+        return inventory.getItems().stream()
+                .findFirst()
+                .orElse(null);
     }
 
     public int getWorkersSize(){
@@ -156,8 +158,8 @@ public class Library extends Organization {
     }
 
     public Worker getFirsWorker(){
-        return workers.getItems().stream().findFirst().orElse(null);
-
+        return workers.getItems().stream()
+                .findFirst().orElse(null);
     }
 
     public int getCustomersSize(){
@@ -173,7 +175,8 @@ public class Library extends Organization {
     }
 
     public Customer getFirstCustomer(){
-        return customers.getItems().stream().findFirst().orElse(null);
-
+        return customers.getItems().stream()
+                .findFirst()
+                .orElse(null);
     }
 }

@@ -61,7 +61,7 @@ public class BookingService {
     }
 
     public static void getReCords() {
-        records.entrySet().stream().forEach(entry -> System.out.println(entry.getValue().getCustomer().getName()
-         + "borrowed " + entry.getValue().getInventory().getName()));
+        records.forEach((key, value) -> System.out.println(value.getCustomer().getName()
+                + "borrowed " + value.getInventory().getName()));
     }
 }
