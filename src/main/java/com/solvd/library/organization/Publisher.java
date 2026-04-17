@@ -29,8 +29,8 @@ public class Publisher extends Organization {
         publishedBooks.add(inventory);
     }
 
-    public void removeInventory(Inventory inventory){
-        if (!publishedBooks.contains(inventory)){
+    public void removeInventory(Inventory inventory) {
+        if (!publishedBooks.contains(inventory)) {
             log.warn("book already removed");
             return;
         }

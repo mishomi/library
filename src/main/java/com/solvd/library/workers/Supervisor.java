@@ -1,7 +1,6 @@
 package com.solvd.library.workers;
 
 import com.solvd.library.inventory.Inventory;
-import com.solvd.library.reflection.LibraryReflection;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,7 +19,7 @@ public class Supervisor extends Worker implements StaffMember {
 
     public void addInventoryItem(Inventory inventory) {
 
-        if (assignedInventory.contains(inventory)){
+        if (assignedInventory.contains(inventory)) {
             log.warn("inventory already accounted for");
             return;
         }
@@ -30,7 +29,7 @@ public class Supervisor extends Worker implements StaffMember {
 
     public void removeInventoryItem(Inventory inventory) {
 
-        if (!assignedInventory.contains(inventory)){
+        if (!assignedInventory.contains(inventory)) {
             log.warn("item not in inventory");
             return;
         }

@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 public final class LibraryReflection {
 
     private static final Logger log = LogManager.getLogger(LibraryReflection.class);
+
     private LibraryReflection() {
     }
 

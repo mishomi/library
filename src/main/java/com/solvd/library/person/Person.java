@@ -1,6 +1,6 @@
 package com.solvd.library.person;
 
-public abstract class Person implements LibraryPeople{
+public abstract class Person implements LibraryPeople {
     protected String name;
     protected int age;
 

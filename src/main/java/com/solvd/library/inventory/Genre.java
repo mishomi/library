@@ -1,6 +1,5 @@
 package com.solvd.library.inventory;
 
-import com.solvd.library.Main;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -13,6 +12,7 @@ public class Genre {
     protected String name;
     private Set<Inventory> booksInThisGenre;
     private GenreType genreType;
+
     public Genre(String name, GenreType genreType) {
         this.name = name;
         this.genreType = genreType;
@@ -28,8 +28,8 @@ public class Genre {
         booksInThisGenre.add(inventory);
     }
 
-    public void removeBook(Inventory inventory){
-        if (!booksInThisGenre.contains(inventory)){
+    public void removeBook(Inventory inventory) {
+        if (!booksInThisGenre.contains(inventory)) {
             log.warn("book already removed");
             return;
         }

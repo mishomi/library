@@ -1,6 +1,5 @@
 package com.solvd.library.organization;
 
-import com.solvd.library.Main;
 import com.solvd.library.annotations.LibraryFeature;
 import com.solvd.library.inventory.Inventory;
 import com.solvd.library.person.Customer;
@@ -24,7 +23,7 @@ public class Library extends Organization {
 
     public void addInventoryItem(Inventory inventoryItem) {
 
-        if (inventory.contains(inventoryItem)){
+        if (inventory.contains(inventoryItem)) {
             log.warn("item already accounted for");
             return;
         }
@@ -33,7 +32,7 @@ public class Library extends Organization {
 
     public void removeInventoryItem(Inventory inventoryItem) {
 
-        if (!inventory.contains(inventoryItem)){
+        if (!inventory.contains(inventoryItem)) {
             log.warn("item no longer in inventory");
             return;
         }
@@ -42,7 +41,7 @@ public class Library extends Organization {
 
     public void addWorker(Worker libraryWorker) {
 
-        if (workers.contains(libraryWorker)){
+        if (workers.contains(libraryWorker)) {
             log.warn("worker already in the books");
             return;
         }
@@ -51,7 +50,7 @@ public class Library extends Organization {
 
     public void removeWorker(Worker libraryWorker) {
 
-        if (!workers.contains(libraryWorker)){
+        if (!workers.contains(libraryWorker)) {
             log.warn("worker no longer works here");
             return;
         }
@@ -60,7 +59,7 @@ public class Library extends Organization {
 
     public void addCustomer(Customer customer) {
 
-        if (customers.contains(customer)){
+        if (customers.contains(customer)) {
             log.warn("customer already in the books");
             return;
         }
@@ -69,7 +68,7 @@ public class Library extends Organization {
 
     public void removeCustomer(Customer customer) {
 
-        if (!customers.contains(customer)){
+        if (!customers.contains(customer)) {
             log.warn("customer no longer shops here");
             return;
         }
@@ -125,54 +124,54 @@ public class Library extends Organization {
         return "Library named " + name;
     }
 
-    public int getInventorySize(){
+    public int getInventorySize() {
         return inventory.size();
     }
 
-    public boolean isInventoryEmpty(){
+    public boolean isInventoryEmpty() {
         return inventory.isEmpty();
     }
 
-    public Inventory getInventoryItemAtIndex(int n){
+    public Inventory getInventoryItemAtIndex(int n) {
         return inventory.get(n);
     }
 
-    public Inventory getFirstInventoryItem(){
+    public Inventory getFirstInventoryItem() {
         return inventory.getItems().stream()
                 .findFirst()
                 .orElse(null);
     }
 
-    public int getWorkersSize(){
+    public int getWorkersSize() {
         return workers.size();
     }
 
-    public boolean isWorkersEmpty(){
+    public boolean isWorkersEmpty() {
         return workers.isEmpty();
     }
 
-    public Worker getWorkerAtIndex(int n){
+    public Worker getWorkerAtIndex(int n) {
         return workers.get(n);
     }
 
-    public Worker getFirsWorker(){
+    public Worker getFirsWorker() {
         return workers.getItems().stream()
                 .findFirst().orElse(null);
     }
 
-    public int getCustomersSize(){
+    public int getCustomersSize() {
         return customers.size();
     }
 
-    public boolean isCustomersEmpty(){
+    public boolean isCustomersEmpty() {
         return customers.isEmpty();
     }
 
-    public Customer getCustomerAtIndex(int n){
+    public Customer getCustomerAtIndex(int n) {
         return customers.get(n);
     }
 
-    public Customer getFirstCustomer(){
+    public Customer getFirstCustomer() {
         return customers.getItems().stream()
                 .findFirst()
                 .orElse(null);

@@ -16,6 +16,7 @@ public abstract class Inventory {
     private Genre genre;
     private ItemType itemType;
     private BigDecimal price;
+
     public Inventory(String name, Author author, Supervisor supervisor, Publisher publisher, Genre genre, ItemType itemType, BigDecimal price) {
         this.name = name;
         this.author = author;

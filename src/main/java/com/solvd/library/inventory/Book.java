@@ -1,6 +1,5 @@
 package com.solvd.library.inventory;
 
-import com.solvd.library.Main;
 import com.solvd.library.annotations.LibraryFeature;
 import com.solvd.library.person.Author;
 import com.solvd.library.person.Customer;
@@ -21,7 +20,7 @@ public class Book extends Inventory implements ItemWithPrice, BorrowableItem {
     }
 
     @Override
-    public void bookItem(Customer customer) throws ItemUnavailableException{
+    public void bookItem(Customer customer) throws ItemUnavailableException {
 
         if (this.getSupervisor() == null) {
             throw new ItemUnavailableException("Sorry, book not available!");

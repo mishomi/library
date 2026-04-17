@@ -1,6 +1,5 @@
 package com.solvd.library.inventory;
 
-import com.solvd.library.Main;
 import com.solvd.library.person.Author;
 import com.solvd.library.person.Customer;
 import com.solvd.library.organization.Publisher;
@@ -21,7 +20,7 @@ public class EBook extends Inventory implements BorrowableItem {
     }
 
     @Override
-    public void bookItem(Customer customer) throws ItemUnavailableException{
+    public void bookItem(Customer customer) throws ItemUnavailableException {
 
         if (customer.getOutstandingFees().intValue() > 0) {
             if (customer.getMoney().intValue() >= customer.getOutstandingFees().intValue()) {

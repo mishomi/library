@@ -14,13 +14,16 @@ import com.solvd.library.inventory.*;
 
 import java.math.BigDecimal;
 import java.util.function.*;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 import java.util.stream.Collectors;
 
 public class Main {
 
     private static final Logger log = LogManager.getLogger(Main.class);
+
     public static void main(String[] args) {
 
         TextWordCounter.countUniqueWords();

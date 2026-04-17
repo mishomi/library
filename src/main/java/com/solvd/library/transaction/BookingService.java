@@ -1,10 +1,8 @@
 package com.solvd.library.transaction;
 
-import com.solvd.library.inventory.Book;
 import com.solvd.library.inventory.Inventory;
 import com.solvd.library.inventory.ItemUnavailableException;
 import com.solvd.library.person.Customer;
-import com.solvd.library.reflection.LibraryReflection;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -25,9 +23,9 @@ public class BookingService {
 
     public void book(Customer customer, Inventory inventory) throws ItemUnavailableException {
         BorrowKey borrowKey = new BorrowKey(customer, inventory);
-        if (records.containsKey(borrowKey) ){
+        if (records.containsKey(borrowKey)) {
             Record existing = records.get(borrowKey);
-            if (existing.getReturnDate() == null){
+            if (existing.getReturnDate() == null) {
                 throw new NotAvailableException("This item is already borrowed by this customer");
             }
         }
@@ -42,7 +40,7 @@ public class BookingService {
     public void returnItem(Customer customer, Inventory inventory) {
         BorrowKey borrowKey = new BorrowKey(customer, inventory);
         Record record = records.get(borrowKey);
-        if (record == null){
+        if (record == null) {
             logger.warn("item not on record");
             return;
         }
@@ -57,8 +55,8 @@ public class BookingService {
         return records.size();
     }
 
-    public Record getFirstRecord(){
-        if (records.isEmpty()){
+    public Record getFirstRecord() {
+        if (records.isEmpty()) {
             logger.warn("no records to date");
             return null;
         }

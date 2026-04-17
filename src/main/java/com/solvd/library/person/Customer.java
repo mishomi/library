@@ -27,7 +27,7 @@ public class Customer extends Person implements LibraryPeople {
         this.age = age;
         this.library = library;
         this.paymentStatus = PaymentStatus.PAID;
-        if (!library.getCustomers().contains(this)){
+        if (!library.getCustomers().contains(this)) {
             library.addCustomer(this);
         }
         this.itemsCurrentlyInPossession = new ArrayList<>();
@@ -41,7 +41,7 @@ public class Customer extends Person implements LibraryPeople {
 
     public void takeItem(Inventory inventory) {
 
-        if (!library.getInventory().contains(inventory)){
+        if (!library.getInventory().contains(inventory)) {
             log.warn("item not available");
             return;
         }
@@ -51,7 +51,7 @@ public class Customer extends Person implements LibraryPeople {
 
     public void returnItem(Inventory inventory) {
 
-        if (!itemsCurrentlyInPossession.contains(inventory)){
+        if (!itemsCurrentlyInPossession.contains(inventory)) {
             log.warn("item not in possession");
             return;
         }
@@ -117,8 +117,7 @@ public class Customer extends Person implements LibraryPeople {
                 this.setMoney(this.getMoney().subtract(this.getOutstandingFees()));
                 this.outstandingFees = BigDecimal.valueOf(0);
                 paymentStatus = PaymentStatus.PAID;
-            }
-            else {
+            } else {
                 paymentStatus = PaymentStatus.UNPAID;
             }
         }

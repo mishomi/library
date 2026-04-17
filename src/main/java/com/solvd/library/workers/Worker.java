@@ -1,6 +1,6 @@
 package com.solvd.library.workers;
 
-public abstract class Worker implements StaffMember{
+public abstract class Worker implements StaffMember {
 
     private int salary;
     private String name;
