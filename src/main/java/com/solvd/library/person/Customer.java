@@ -2,6 +2,8 @@ package com.solvd.library.person;
 
 import com.solvd.library.inventory.Inventory;
 import com.solvd.library.organization.Library;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -9,6 +11,7 @@ import java.util.List;
 
 public class Customer extends Person implements LibraryPeople {
 
+    private static final Logger log = LogManager.getLogger(Customer.class);
     private String name;
     private BigDecimal money;
     private int age;
@@ -39,7 +42,7 @@ public class Customer extends Person implements LibraryPeople {
     public void takeItem(Inventory inventory) {
 
         if (!library.getInventory().contains(inventory)){
-            System.out.println("item not available");
+            log.warn("item not available");
             return;
         }
         itemsCurrentlyInPossession.add(inventory);
@@ -49,7 +52,7 @@ public class Customer extends Person implements LibraryPeople {
     public void returnItem(Inventory inventory) {
 
         if (!itemsCurrentlyInPossession.contains(inventory)){
-            System.out.println("item not in possession");
+            log.warn("item not in possession");
             return;
         }
         itemsCurrentlyInPossession.remove(inventory);

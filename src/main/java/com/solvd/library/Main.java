@@ -6,6 +6,7 @@ import com.solvd.library.person.Author;
 import com.solvd.library.person.Customer;
 import com.solvd.library.reflection.LibraryReflection;
 import com.solvd.library.transaction.*;
+import com.solvd.library.util.TextWordCounter;
 import com.solvd.library.workers.Custodian;
 import com.solvd.library.workers.Receptionist;
 import com.solvd.library.workers.Supervisor;
@@ -13,16 +14,20 @@ import com.solvd.library.inventory.*;
 
 import java.math.BigDecimal;
 import java.util.function.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import java.util.stream.Collectors;
 
 public class Main {
+
+    private static final Logger log = LogManager.getLogger(Main.class);
     public static void main(String[] args) {
 
+        TextWordCounter.countUniqueWords();
         Genre genre = new Genre("basic_genre", GenreType.THRILLER);
         Publisher publisher = new Publisher("publisherName", "Georgia");
         BigDecimal value1 = new BigDecimal("12.25");
         BigDecimal value2 = new BigDecimal("129.25");
-
         Author author1 = new Author("fiodor dostoevsky", "Russia");
         Author author2 = new Author("JRR tolkien", "england");
         Author author3 = new Author("roger allers", "united states");
@@ -52,93 +57,93 @@ public class Main {
 
         Customer customer = new Customer("john", value2, 20, library);
 
-        Runnable startup = () -> System.out.println("Starting library simulatin");
+        Runnable startup = () -> log.info("Starting library simulatin");
         startup.run();
 
         Supplier<String> welcomeMessage = () -> "Welcome to the library";
-        System.out.println(welcomeMessage.get());
+        log.info(welcomeMessage.get());
 
-        Consumer<Inventory> printInventoryItem = item -> System.out.println("Inventory item: " + item.getName());
+        Consumer<Inventory> printInventoryItem = item -> log.info("Inventory item: " + item.getName());
         library.getInventory().forEachItem(printInventoryItem);
 
         Predicate<Inventory> isPricedItemOver10 = item -> item instanceof ItemWithPrice && ((ItemWithPrice) item).getPrice().compareTo(new BigDecimal("10")) > 0;
 
-        System.out.println("Items that costs above 10:");
-        library.getInventory().filterItems(isPricedItemOver10).forEach(item -> System.out.println(item.getName()));
+        log.info("Items that costs above 10:");
+        library.getInventory().filterItems(isPricedItemOver10).forEach(item -> log.info(item.getName()));
 
         Function<Inventory, String> inventoryDescription = item -> item.getName() + " by " + item.getAuthor().getName();
 
-        System.out.println("Descriptions:");
-        library.getInventory().mapItems(inventoryDescription).forEach(System.out::println);
+        log.info("Descriptions:");
+        library.getInventory().mapItems(inventoryDescription).forEach(log::info);
 
-        BiConsumer<Customer, Inventory> borrowingMessage = (cust, item) -> System.out.println(cust.getName() + " is about to borrow " + item.getName());
+        BiConsumer<Customer, Inventory> borrowingMessage = (cust, item) -> log.info(cust.getName() + " is about to borrow " + item.getName());
         borrowingMessage.accept(customer, book);
 
-        System.out.println("item names: " +
+        log.info("item names: " +
                 library.getInventory().getItems().stream()
                         .map(Inventory::getName)
                         .collect(Collectors.joining(", ")));
 
-        System.out.println("Expensive items: " +
+        log.info("Expensive items: " +
                 library.getInventory().getItems().stream()
                         .filter(item -> item instanceof ItemWithPrice && ((ItemWithPrice) item).getPrice().compareTo(new BigDecimal("10")) > 0)
                         .map(Inventory::getName)
                         .toList());
 
-        System.out.println("Sorted item names: " +
+        log.info("Sorted item names: " +
                 library.getInventory().getItems().stream()
                         .map(Inventory::getName)
                         .sorted()
                         .toList());
 
-        System.out.println("Inventory count: " + library.getInventory().getItems().stream().count());
+        log.debug("Inventory count: " + library.getInventory().getItems().stream().count());
 
-        System.out.println("Customer names:");
+        log.info("Customer names:");
         library.getCustomers().getItems().stream()
                 .map(Customer::getName)
-                .forEach(System.out::println);
+                .forEach(log::info);
 
-        System.out.println("Library main.java.com.solvd.library.inventory empty: " + library.isInventoryEmpty());
-        System.out.println("Genre empty: " + genre.getBooksInThisGenre().isEmpty());
-        System.out.println("Publisher empty: " + publisher.getPublishedBooks().isEmpty());
-        System.out.println("Booking records empty: " + bookingService.getOutstandingItemsCount());
-        System.out.println("Library main.java.com.solvd.library.inventory size: " + library.getInventorySize());
-        System.out.println("Workers size: " + library.getWorkersSize());
-        System.out.println("Customers size: " + library.getCustomersSize());
-        System.out.println("Genre size: " + genre.getBooksInThisGenre().size());
-        System.out.println("Publisher size: " + publisher.getPublishedBooks().size());
-        System.out.println("First library item: " + library.getFirstInventoryItem().getName());
-        System.out.println("First genre item: " + genre.getFirstItem().getName());
-        System.out.println("First publisher item: " + publisher.getFirstItem().getName());
+        log.debug("Publisher empty: " + publisher.getPublishedBooks().isEmpty());
+        log.debug("Booking records empty: " + bookingService.getOutstandingItemsCount());
+        log.debug("Library inventory size: " + library.getInventorySize());
+        log.debug("Workers size: " + library.getWorkersSize());
+        log.debug("Customers size: " + library.getCustomersSize());
+        log.debug("Genre size: " + genre.getBooksInThisGenre().size());
+        log.debug("Publisher size: " + publisher.getPublishedBooks().size());
+        log.debug("First library item: " + library.getFirstInventoryItem().getName());
+        log.debug("First genre item: " + genre.getFirstItem().getName());
+        log.debug("First publisher item: " + publisher.getFirstItem().getName());
+        log.debug("Library inventory empty: " + library.isInventoryEmpty());
+        log.debug("Genre empty: " + genre.getBooksInThisGenre().isEmpty());
 
 
         BorrowValidator validator = (cust, item) ->
                 cust.getMoney().compareTo(item.getPrice()) >= 0;
 
-        System.out.println("can " + customer.getName() + " borrow: " + book.getName() + "?" + validator.canBorrow(customer, book));
+        log.warn("can " + customer.getName() + " borrow: " + book.getName() + "?" + validator.canBorrow(customer, book));
 
         NotificationService notificationService = (cust, message) ->
-                System.out.println("Notifying " + cust.getName() + ": " + message);
+                log.warn("Notifying " + cust.getName() + ": " + message);
 
         notificationService.notify(customer, "Your book is overdue!");
 
         for (Inventory item : library.getInventory().getItems()) {
-            System.out.println(item.getName());
+            log.info(item.getName());
         }
 
         for (Inventory item : genre.getBooksInThisGenre()) {
-            System.out.println(item.getName());
+            log.info(item.getName());
         }
 
         for (Inventory item : publisher.getPublishedBooks()) {
-            System.out.println(item.getName());
+            log.info(item.getName());
         }
         BorrowRecord borrowRecord = new BorrowRecord(
                 customer.getName(),
                 book.getName(),
                 java.time.LocalDateTime.now().toString()
         );
-        System.out.println(borrowRecord);
+        log.info(borrowRecord);
 
         LibraryReflection.inspectClass(Book.class);
         LibraryReflection.handleCustomAnnotations(Book.class);
@@ -156,9 +161,9 @@ public class Main {
 
             librarySession.log("Finished transactions successfully");
         } catch (ItemUnavailableException e) {
-            System.out.println("Checked exception handled: " + e.getMessage());
+            log.error("Checked exception handled: " + e.getMessage());
         } finally {
-            System.out.println("completed execution");
+            log.info("completed execution");
         }
     }
 }

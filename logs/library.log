@@ -1,0 +1,364 @@
+2026-04-17 04:59:15 [main] INFO  Main - Starting library simulatin
+2026-04-17 04:59:15 [main] INFO  Main - Welcome to the library
+2026-04-17 04:59:15 [main] INFO  Main - Inventory item: crime and punishment
+2026-04-17 04:59:15 [main] INFO  Main - Inventory item: The lion king
+2026-04-17 04:59:15 [main] INFO  Main - Inventory item: The lord of the rings
+2026-04-17 04:59:15 [main] INFO  Main - Items that costs above 10:
+2026-04-17 04:59:15 [main] INFO  Main - crime and punishment
+2026-04-17 04:59:15 [main] INFO  Main - The lion king
+2026-04-17 04:59:15 [main] INFO  Main - Descriptions:
+2026-04-17 04:59:15 [main] INFO  Main - crime and punishment by fiodor dostoevsky
+2026-04-17 04:59:15 [main] INFO  Main - The lion king by roger allers
+2026-04-17 04:59:15 [main] INFO  Main - The lord of the rings by JRR tolkien
+2026-04-17 04:59:15 [main] INFO  Main - john is about to borrow crime and punishment
+2026-04-17 04:59:15 [main] INFO  Main - item names: crime and punishment, The lion king, The lord of the rings
+2026-04-17 04:59:15 [main] INFO  Main - Expensive items: [crime and punishment, The lion king]
+2026-04-17 04:59:15 [main] INFO  Main - Sorted item names: [The lion king, The lord of the rings, crime and punishment]
+2026-04-17 04:59:15 [main] INFO  Main - Customer names:
+2026-04-17 04:59:15 [main] INFO  Main - john
+2026-04-17 04:59:15 [main] WARN  Main - can john borrow: crime and punishment?true
+2026-04-17 04:59:15 [main] WARN  Main - Notifying john: Your book is overdue!
+2026-04-17 04:59:15 [main] INFO  Main - crime and punishment
+2026-04-17 04:59:15 [main] INFO  Main - The lion king
+2026-04-17 04:59:15 [main] INFO  Main - The lord of the rings
+2026-04-17 04:59:15 [main] INFO  Main - crime and punishment
+2026-04-17 04:59:15 [main] INFO  Main - The lion king
+2026-04-17 04:59:15 [main] INFO  Main - The lord of the rings
+2026-04-17 04:59:15 [main] INFO  Main - crime and punishment
+2026-04-17 04:59:15 [main] INFO  Main - The lion king
+2026-04-17 04:59:15 [main] INFO  Main - The lord of the rings
+2026-04-17 04:59:15 [main] INFO  Main - BorrowRecord[customerName=john, itemName=crime and punishment, borrowDate=2026-04-17T04:59:15.102894400]
+2026-04-17 04:59:15 [main] INFO  LibraryReflection - CLASS: com.solvd.library.inventory.Book
+2026-04-17 04:59:15 [main] INFO  LibraryReflection - MODIFIERS: public
+2026-04-17 04:59:15 [main] INFO  LibraryReflection - FIELDS:
+2026-04-17 04:59:15 [main] INFO  LibraryReflection -   private static final Logger log
+2026-04-17 04:59:15 [main] INFO  LibraryReflection - CONSTRUCTORS:
+2026-04-17 04:59:15 [main] INFO  LibraryReflection -   public Book(String, Author, Supervisor, BigDecimal, Publisher, Genre)
+2026-04-17 04:59:15 [main] INFO  LibraryReflection - METHODS:
+2026-04-17 04:59:15 [main] INFO  LibraryReflection -   public void bookItem(Customer)
+2026-04-17 04:59:15 [main] INFO  LibraryReflection -   public void returnItem()
+2026-04-17 04:59:15 [main] INFO  LibraryReflection - CLASS ANNOTATION ON Book: Physical borrowable item
+2026-04-17 04:59:15 [main] INFO  LibraryReflection - METHOD ANNOTATION ON getDescription: Returns a readable library description
+2026-04-17 04:59:15 [main] INFO  LibraryReflection - REFLECTION INVOCATION RESULT: Library named Reflection Library
+2026-04-17 04:59:15 [main] INFO  LibrarySession - Opening session: session 1
+2026-04-17 04:59:15 [main] INFO  Book - thanks, enjoy!
+2026-04-17 04:59:15 [main] INFO  Movie - thank you, enjoy!
+2026-04-17 04:59:15 [main] INFO  EBook - Download your E-main.java.com.solvd.library.inventory.Book here: download_link
+2026-04-17 04:59:15 [main] INFO  Book - than you, come again!
+2026-04-17 04:59:15 [main] INFO  Movie - thank you, come again!
+2026-04-17 04:59:15 [main] INFO  EBook - E-Books do not need to be returned.
+2026-04-17 04:59:15 [main] INFO  LibrarySession - [session 1] Finished transactions successfully
+2026-04-17 04:59:15 [main] INFO  LibrarySession - Closing session: session 1
+2026-04-17 04:59:15 [main] INFO  Main - completed execution
+2026-04-17 05:04:54 [main] INFO  Main - Starting library simulatin
+2026-04-17 05:04:54 [main] INFO  Main - Welcome to the library
+2026-04-17 05:04:54 [main] INFO  Main - Inventory item: crime and punishment
+2026-04-17 05:04:54 [main] INFO  Main - Inventory item: The lion king
+2026-04-17 05:04:54 [main] INFO  Main - Inventory item: The lord of the rings
+2026-04-17 05:04:54 [main] INFO  Main - Items that costs above 10:
+2026-04-17 05:04:54 [main] INFO  Main - crime and punishment
+2026-04-17 05:04:54 [main] INFO  Main - The lion king
+2026-04-17 05:04:54 [main] INFO  Main - Descriptions:
+2026-04-17 05:04:54 [main] INFO  Main - crime and punishment by fiodor dostoevsky
+2026-04-17 05:04:54 [main] INFO  Main - The lion king by roger allers
+2026-04-17 05:04:54 [main] INFO  Main - The lord of the rings by JRR tolkien
+2026-04-17 05:04:54 [main] INFO  Main - john is about to borrow crime and punishment
+2026-04-17 05:04:54 [main] INFO  Main - item names: crime and punishment, The lion king, The lord of the rings
+2026-04-17 05:04:54 [main] INFO  Main - Expensive items: [crime and punishment, The lion king]
+2026-04-17 05:04:54 [main] INFO  Main - Sorted item names: [The lion king, The lord of the rings, crime and punishment]
+2026-04-17 05:04:54 [main] INFO  Main - Customer names:
+2026-04-17 05:04:54 [main] INFO  Main - john
+2026-04-17 05:04:54 [main] WARN  Main - can john borrow: crime and punishment?true
+2026-04-17 05:04:54 [main] WARN  Main - Notifying john: Your book is overdue!
+2026-04-17 05:04:54 [main] INFO  Main - crime and punishment
+2026-04-17 05:04:54 [main] INFO  Main - The lion king
+2026-04-17 05:04:54 [main] INFO  Main - The lord of the rings
+2026-04-17 05:04:54 [main] INFO  Main - crime and punishment
+2026-04-17 05:04:54 [main] INFO  Main - The lion king
+2026-04-17 05:04:54 [main] INFO  Main - The lord of the rings
+2026-04-17 05:04:54 [main] INFO  Main - crime and punishment
+2026-04-17 05:04:54 [main] INFO  Main - The lion king
+2026-04-17 05:04:54 [main] INFO  Main - The lord of the rings
+2026-04-17 05:04:54 [main] INFO  Main - BorrowRecord[customerName=john, itemName=crime and punishment, borrowDate=2026-04-17T05:04:54.374458700]
+2026-04-17 05:04:54 [main] INFO  LibraryReflection - CLASS: com.solvd.library.inventory.Book
+2026-04-17 05:04:54 [main] INFO  LibraryReflection - MODIFIERS: public
+2026-04-17 05:04:54 [main] INFO  LibraryReflection - FIELDS:
+2026-04-17 05:04:54 [main] INFO  LibraryReflection -   private static final Logger log
+2026-04-17 05:04:54 [main] INFO  LibraryReflection - CONSTRUCTORS:
+2026-04-17 05:04:54 [main] INFO  LibraryReflection -   public Book(String, Author, Supervisor, BigDecimal, Publisher, Genre)
+2026-04-17 05:04:54 [main] INFO  LibraryReflection - METHODS:
+2026-04-17 05:04:54 [main] INFO  LibraryReflection -   public void returnItem()
+2026-04-17 05:04:54 [main] INFO  LibraryReflection -   public void bookItem(Customer)
+2026-04-17 05:04:54 [main] INFO  LibraryReflection - CLASS ANNOTATION ON Book: Physical borrowable item
+2026-04-17 05:04:54 [main] INFO  LibraryReflection - METHOD ANNOTATION ON getDescription: Returns a readable library description
+2026-04-17 05:04:54 [main] INFO  LibraryReflection - REFLECTION INVOCATION RESULT: Library named Reflection Library
+2026-04-17 05:04:54 [main] INFO  LibrarySession - Opening session: session 1
+2026-04-17 05:04:54 [main] INFO  Book - thanks, enjoy!
+2026-04-17 05:04:54 [main] INFO  Movie - thank you, enjoy!
+2026-04-17 05:04:54 [main] INFO  EBook - Download your Book here: download_link
+2026-04-17 05:04:54 [main] INFO  Book - than you, come again!
+2026-04-17 05:04:54 [main] INFO  Movie - thank you, come again!
+2026-04-17 05:04:54 [main] INFO  EBook - E-Books do not need to be returned.
+2026-04-17 05:04:54 [main] INFO  LibrarySession - [session 1] Finished transactions successfully
+2026-04-17 05:04:54 [main] INFO  LibrarySession - Closing session: session 1
+2026-04-17 05:04:54 [main] INFO  Main - completed execution
+2026-04-17 05:10:20 [main] INFO  Main - Starting library simulatin
+2026-04-17 05:10:20 [main] INFO  Main - Welcome to the library
+2026-04-17 05:10:20 [main] INFO  Main - Inventory item: crime and punishment
+2026-04-17 05:10:20 [main] INFO  Main - Inventory item: The lion king
+2026-04-17 05:10:20 [main] INFO  Main - Inventory item: The lord of the rings
+2026-04-17 05:10:20 [main] INFO  Main - Items that costs above 10:
+2026-04-17 05:10:20 [main] INFO  Main - crime and punishment
+2026-04-17 05:10:20 [main] INFO  Main - The lion king
+2026-04-17 05:10:20 [main] INFO  Main - Descriptions:
+2026-04-17 05:10:20 [main] INFO  Main - crime and punishment by fiodor dostoevsky
+2026-04-17 05:10:20 [main] INFO  Main - The lion king by roger allers
+2026-04-17 05:10:20 [main] INFO  Main - The lord of the rings by JRR tolkien
+2026-04-17 05:10:20 [main] INFO  Main - john is about to borrow crime and punishment
+2026-04-17 05:10:20 [main] INFO  Main - item names: crime and punishment, The lion king, The lord of the rings
+2026-04-17 05:10:20 [main] INFO  Main - Expensive items: [crime and punishment, The lion king]
+2026-04-17 05:10:20 [main] INFO  Main - Sorted item names: [The lion king, The lord of the rings, crime and punishment]
+2026-04-17 05:10:20 [main] INFO  Main - Customer names:
+2026-04-17 05:10:20 [main] INFO  Main - john
+2026-04-17 05:10:20 [main] WARN  Main - can john borrow: crime and punishment?true
+2026-04-17 05:10:20 [main] WARN  Main - Notifying john: Your book is overdue!
+2026-04-17 05:10:20 [main] INFO  Main - crime and punishment
+2026-04-17 05:10:20 [main] INFO  Main - The lion king
+2026-04-17 05:10:20 [main] INFO  Main - The lord of the rings
+2026-04-17 05:10:20 [main] INFO  Main - crime and punishment
+2026-04-17 05:10:20 [main] INFO  Main - The lion king
+2026-04-17 05:10:20 [main] INFO  Main - The lord of the rings
+2026-04-17 05:10:20 [main] INFO  Main - crime and punishment
+2026-04-17 05:10:20 [main] INFO  Main - The lion king
+2026-04-17 05:10:20 [main] INFO  Main - The lord of the rings
+2026-04-17 05:10:20 [main] INFO  Main - BorrowRecord[customerName=john, itemName=crime and punishment, borrowDate=2026-04-17T05:10:20.468403400]
+2026-04-17 05:10:20 [main] INFO  LibraryReflection - CLASS: com.solvd.library.inventory.Book
+2026-04-17 05:10:20 [main] INFO  LibraryReflection - MODIFIERS: public
+2026-04-17 05:10:20 [main] INFO  LibraryReflection - FIELDS:
+2026-04-17 05:10:20 [main] INFO  LibraryReflection -   private static final Logger log
+2026-04-17 05:10:20 [main] INFO  LibraryReflection - CONSTRUCTORS:
+2026-04-17 05:10:20 [main] INFO  LibraryReflection -   public Book(String, Author, Supervisor, BigDecimal, Publisher, Genre)
+2026-04-17 05:10:20 [main] INFO  LibraryReflection - METHODS:
+2026-04-17 05:10:20 [main] INFO  LibraryReflection -   public void returnItem()
+2026-04-17 05:10:20 [main] INFO  LibraryReflection -   public void bookItem(Customer)
+2026-04-17 05:10:20 [main] INFO  LibraryReflection - CLASS ANNOTATION ON Book: Physical borrowable item
+2026-04-17 05:10:20 [main] INFO  LibraryReflection - METHOD ANNOTATION ON getDescription: Returns a readable library description
+2026-04-17 05:10:20 [main] INFO  LibraryReflection - REFLECTION INVOCATION RESULT: Library named Reflection Library
+2026-04-17 05:10:20 [main] INFO  LibrarySession - Opening session: session 1
+2026-04-17 05:10:20 [main] INFO  Book - thanks, enjoy!
+2026-04-17 05:10:20 [main] INFO  Movie - thank you, enjoy!
+2026-04-17 05:10:20 [main] INFO  EBook - Download your Book here: download_link
+2026-04-17 05:10:20 [main] INFO  Book - than you, come again!
+2026-04-17 05:10:20 [main] INFO  Movie - thank you, come again!
+2026-04-17 05:10:20 [main] INFO  EBook - E-Books do not need to be returned.
+2026-04-17 05:10:20 [main] INFO  LibrarySession - [session 1] Finished transactions successfully
+2026-04-17 05:10:20 [main] INFO  LibrarySession - Closing session: session 1
+2026-04-17 05:10:20 [main] INFO  Main - completed execution
+2026-04-17 05:10:41 [main] INFO  Main - Starting library simulatin
+2026-04-17 05:10:41 [main] INFO  Main - Welcome to the library
+2026-04-17 05:10:41 [main] INFO  Main - Inventory item: crime and punishment
+2026-04-17 05:10:41 [main] INFO  Main - Inventory item: The lion king
+2026-04-17 05:10:41 [main] INFO  Main - Inventory item: The lord of the rings
+2026-04-17 05:10:41 [main] INFO  Main - Items that costs above 10:
+2026-04-17 05:10:41 [main] INFO  Main - crime and punishment
+2026-04-17 05:10:41 [main] INFO  Main - The lion king
+2026-04-17 05:10:41 [main] INFO  Main - Descriptions:
+2026-04-17 05:10:41 [main] INFO  Main - crime and punishment by fiodor dostoevsky
+2026-04-17 05:10:41 [main] INFO  Main - The lion king by roger allers
+2026-04-17 05:10:41 [main] INFO  Main - The lord of the rings by JRR tolkien
+2026-04-17 05:10:41 [main] INFO  Main - john is about to borrow crime and punishment
+2026-04-17 05:10:41 [main] INFO  Main - item names: crime and punishment, The lion king, The lord of the rings
+2026-04-17 05:10:41 [main] INFO  Main - Expensive items: [crime and punishment, The lion king]
+2026-04-17 05:10:41 [main] INFO  Main - Sorted item names: [The lion king, The lord of the rings, crime and punishment]
+2026-04-17 05:10:41 [main] INFO  Main - Customer names:
+2026-04-17 05:10:41 [main] INFO  Main - john
+2026-04-17 05:10:41 [main] WARN  Main - can john borrow: crime and punishment?true
+2026-04-17 05:10:41 [main] WARN  Main - Notifying john: Your book is overdue!
+2026-04-17 05:10:41 [main] INFO  Main - crime and punishment
+2026-04-17 05:10:41 [main] INFO  Main - The lion king
+2026-04-17 05:10:41 [main] INFO  Main - The lord of the rings
+2026-04-17 05:10:41 [main] INFO  Main - crime and punishment
+2026-04-17 05:10:41 [main] INFO  Main - The lion king
+2026-04-17 05:10:41 [main] INFO  Main - The lord of the rings
+2026-04-17 05:10:41 [main] INFO  Main - crime and punishment
+2026-04-17 05:10:41 [main] INFO  Main - The lion king
+2026-04-17 05:10:41 [main] INFO  Main - The lord of the rings
+2026-04-17 05:10:41 [main] INFO  Main - BorrowRecord[customerName=john, itemName=crime and punishment, borrowDate=2026-04-17T05:10:41.984459700]
+2026-04-17 05:10:41 [main] INFO  LibraryReflection - CLASS: com.solvd.library.inventory.Book
+2026-04-17 05:10:41 [main] INFO  LibraryReflection - MODIFIERS: public
+2026-04-17 05:10:41 [main] INFO  LibraryReflection - FIELDS:
+2026-04-17 05:10:41 [main] INFO  LibraryReflection -   private static final Logger log
+2026-04-17 05:10:41 [main] INFO  LibraryReflection - CONSTRUCTORS:
+2026-04-17 05:10:41 [main] INFO  LibraryReflection -   public Book(String, Author, Supervisor, BigDecimal, Publisher, Genre)
+2026-04-17 05:10:41 [main] INFO  LibraryReflection - METHODS:
+2026-04-17 05:10:41 [main] INFO  LibraryReflection -   public void bookItem(Customer)
+2026-04-17 05:10:41 [main] INFO  LibraryReflection -   public void returnItem()
+2026-04-17 05:10:41 [main] INFO  LibraryReflection - CLASS ANNOTATION ON Book: Physical borrowable item
+2026-04-17 05:10:41 [main] INFO  LibraryReflection - METHOD ANNOTATION ON getDescription: Returns a readable library description
+2026-04-17 05:10:41 [main] INFO  LibraryReflection - REFLECTION INVOCATION RESULT: Library named Reflection Library
+2026-04-17 05:10:41 [main] INFO  LibrarySession - Opening session: session 1
+2026-04-17 05:10:41 [main] INFO  Book - thanks, enjoy!
+2026-04-17 05:10:41 [main] INFO  Movie - thank you, enjoy!
+2026-04-17 05:10:41 [main] INFO  EBook - Download your Book here: download_link
+2026-04-17 05:10:41 [main] INFO  Book - than you, come again!
+2026-04-17 05:10:41 [main] INFO  Movie - thank you, come again!
+2026-04-17 05:10:41 [main] INFO  EBook - E-Books do not need to be returned.
+2026-04-17 05:10:41 [main] INFO  LibrarySession - [session 1] Finished transactions successfully
+2026-04-17 05:10:41 [main] INFO  LibrarySession - Closing session: session 1
+2026-04-17 05:10:41 [main] INFO  Main - completed execution
+2026-04-17 05:12:04 [main] INFO  Main - Starting library simulatin
+2026-04-17 05:12:04 [main] INFO  Main - Welcome to the library
+2026-04-17 05:12:04 [main] INFO  Main - Inventory item: crime and punishment
+2026-04-17 05:12:04 [main] INFO  Main - Inventory item: The lion king
+2026-04-17 05:12:04 [main] INFO  Main - Inventory item: The lord of the rings
+2026-04-17 05:12:04 [main] INFO  Main - Items that costs above 10:
+2026-04-17 05:12:04 [main] INFO  Main - crime and punishment
+2026-04-17 05:12:04 [main] INFO  Main - The lion king
+2026-04-17 05:12:04 [main] INFO  Main - Descriptions:
+2026-04-17 05:12:04 [main] INFO  Main - crime and punishment by fiodor dostoevsky
+2026-04-17 05:12:04 [main] INFO  Main - The lion king by roger allers
+2026-04-17 05:12:04 [main] INFO  Main - The lord of the rings by JRR tolkien
+2026-04-17 05:12:04 [main] INFO  Main - john is about to borrow crime and punishment
+2026-04-17 05:12:04 [main] INFO  Main - item names: crime and punishment, The lion king, The lord of the rings
+2026-04-17 05:12:04 [main] INFO  Main - Expensive items: [crime and punishment, The lion king]
+2026-04-17 05:12:04 [main] INFO  Main - Sorted item names: [The lion king, The lord of the rings, crime and punishment]
+2026-04-17 05:12:04 [main] INFO  Main - Customer names:
+2026-04-17 05:12:04 [main] INFO  Main - john
+2026-04-17 05:12:04 [main] WARN  Main - can john borrow: crime and punishment?true
+2026-04-17 05:12:04 [main] WARN  Main - Notifying john: Your book is overdue!
+2026-04-17 05:12:04 [main] INFO  Main - crime and punishment
+2026-04-17 05:12:04 [main] INFO  Main - The lion king
+2026-04-17 05:12:04 [main] INFO  Main - The lord of the rings
+2026-04-17 05:12:04 [main] INFO  Main - crime and punishment
+2026-04-17 05:12:04 [main] INFO  Main - The lion king
+2026-04-17 05:12:04 [main] INFO  Main - The lord of the rings
+2026-04-17 05:12:04 [main] INFO  Main - crime and punishment
+2026-04-17 05:12:04 [main] INFO  Main - The lion king
+2026-04-17 05:12:04 [main] INFO  Main - The lord of the rings
+2026-04-17 05:12:04 [main] INFO  Main - BorrowRecord[customerName=john, itemName=crime and punishment, borrowDate=2026-04-17T05:12:04.694451400]
+2026-04-17 05:12:04 [main] INFO  LibraryReflection - CLASS: com.solvd.library.inventory.Book
+2026-04-17 05:12:04 [main] INFO  LibraryReflection - MODIFIERS: public
+2026-04-17 05:12:04 [main] INFO  LibraryReflection - FIELDS:
+2026-04-17 05:12:04 [main] INFO  LibraryReflection -   private static final Logger log
+2026-04-17 05:12:04 [main] INFO  LibraryReflection - CONSTRUCTORS:
+2026-04-17 05:12:04 [main] INFO  LibraryReflection -   public Book(String, Author, Supervisor, BigDecimal, Publisher, Genre)
+2026-04-17 05:12:04 [main] INFO  LibraryReflection - METHODS:
+2026-04-17 05:12:04 [main] INFO  LibraryReflection -   public void returnItem()
+2026-04-17 05:12:04 [main] INFO  LibraryReflection -   public void bookItem(Customer)
+2026-04-17 05:12:04 [main] INFO  LibraryReflection - CLASS ANNOTATION ON Book: Physical borrowable item
+2026-04-17 05:12:04 [main] INFO  LibraryReflection - METHOD ANNOTATION ON getDescription: Returns a readable library description
+2026-04-17 05:12:04 [main] INFO  LibraryReflection - REFLECTION INVOCATION RESULT: Library named Reflection Library
+2026-04-17 05:12:04 [main] INFO  LibrarySession - Opening session: session 1
+2026-04-17 05:12:04 [main] INFO  Book - thanks, enjoy!
+2026-04-17 05:12:04 [main] INFO  Movie - thank you, enjoy!
+2026-04-17 05:12:04 [main] INFO  EBook - Download your Book here: download_link
+2026-04-17 05:12:04 [main] INFO  Book - than you, come again!
+2026-04-17 05:12:04 [main] INFO  Movie - thank you, come again!
+2026-04-17 05:12:04 [main] INFO  EBook - E-Books do not need to be returned.
+2026-04-17 05:12:04 [main] INFO  LibrarySession - [session 1] Finished transactions successfully
+2026-04-17 05:12:04 [main] INFO  LibrarySession - Closing session: session 1
+2026-04-17 05:12:04 [main] INFO  Main - completed execution
+2026-04-17 05:12:50 [main] INFO  Main - Starting library simulatin
+2026-04-17 05:12:50 [main] INFO  Main - Welcome to the library
+2026-04-17 05:12:50 [main] INFO  Main - Inventory item: crime and punishment
+2026-04-17 05:12:50 [main] INFO  Main - Inventory item: The lion king
+2026-04-17 05:12:50 [main] INFO  Main - Inventory item: The lord of the rings
+2026-04-17 05:12:50 [main] INFO  Main - Items that costs above 10:
+2026-04-17 05:12:50 [main] INFO  Main - crime and punishment
+2026-04-17 05:12:50 [main] INFO  Main - The lion king
+2026-04-17 05:12:50 [main] INFO  Main - Descriptions:
+2026-04-17 05:12:50 [main] INFO  Main - crime and punishment by fiodor dostoevsky
+2026-04-17 05:12:50 [main] INFO  Main - The lion king by roger allers
+2026-04-17 05:12:50 [main] INFO  Main - The lord of the rings by JRR tolkien
+2026-04-17 05:12:50 [main] INFO  Main - john is about to borrow crime and punishment
+2026-04-17 05:12:50 [main] INFO  Main - item names: crime and punishment, The lion king, The lord of the rings
+2026-04-17 05:12:50 [main] INFO  Main - Expensive items: [crime and punishment, The lion king]
+2026-04-17 05:12:50 [main] INFO  Main - Sorted item names: [The lion king, The lord of the rings, crime and punishment]
+2026-04-17 05:12:50 [main] INFO  Main - Customer names:
+2026-04-17 05:12:50 [main] INFO  Main - john
+2026-04-17 05:12:50 [main] WARN  Main - can john borrow: crime and punishment?true
+2026-04-17 05:12:50 [main] WARN  Main - Notifying john: Your book is overdue!
+2026-04-17 05:12:50 [main] INFO  Main - crime and punishment
+2026-04-17 05:12:50 [main] INFO  Main - The lion king
+2026-04-17 05:12:50 [main] INFO  Main - The lord of the rings
+2026-04-17 05:12:50 [main] INFO  Main - crime and punishment
+2026-04-17 05:12:50 [main] INFO  Main - The lion king
+2026-04-17 05:12:50 [main] INFO  Main - The lord of the rings
+2026-04-17 05:12:50 [main] INFO  Main - crime and punishment
+2026-04-17 05:12:50 [main] INFO  Main - The lion king
+2026-04-17 05:12:50 [main] INFO  Main - The lord of the rings
+2026-04-17 05:12:50 [main] INFO  Main - BorrowRecord[customerName=john, itemName=crime and punishment, borrowDate=2026-04-17T05:12:50.925150600]
+2026-04-17 05:12:50 [main] INFO  LibraryReflection - CLASS: com.solvd.library.inventory.Book
+2026-04-17 05:12:50 [main] INFO  LibraryReflection - MODIFIERS: public
+2026-04-17 05:12:50 [main] INFO  LibraryReflection - FIELDS:
+2026-04-17 05:12:50 [main] INFO  LibraryReflection -   private static final Logger log
+2026-04-17 05:12:50 [main] INFO  LibraryReflection - CONSTRUCTORS:
+2026-04-17 05:12:50 [main] INFO  LibraryReflection -   public Book(String, Author, Supervisor, BigDecimal, Publisher, Genre)
+2026-04-17 05:12:50 [main] INFO  LibraryReflection - METHODS:
+2026-04-17 05:12:50 [main] INFO  LibraryReflection -   public void returnItem()
+2026-04-17 05:12:50 [main] INFO  LibraryReflection -   public void bookItem(Customer)
+2026-04-17 05:12:50 [main] INFO  LibraryReflection - CLASS ANNOTATION ON Book: Physical borrowable item
+2026-04-17 05:12:50 [main] INFO  LibraryReflection - METHOD ANNOTATION ON getDescription: Returns a readable library description
+2026-04-17 05:12:50 [main] INFO  LibraryReflection - REFLECTION INVOCATION RESULT: Library named Reflection Library
+2026-04-17 05:12:50 [main] INFO  LibrarySession - Opening session: session 1
+2026-04-17 05:12:50 [main] INFO  Book - thanks, enjoy!
+2026-04-17 05:12:50 [main] INFO  Movie - thank you, enjoy!
+2026-04-17 05:12:50 [main] INFO  EBook - Download your Book here: download_link
+2026-04-17 05:12:50 [main] INFO  Book - than you, come again!
+2026-04-17 05:12:50 [main] INFO  Movie - thank you, come again!
+2026-04-17 05:12:50 [main] INFO  EBook - E-Books do not need to be returned.
+2026-04-17 05:12:50 [main] INFO  LibrarySession - [session 1] Finished transactions successfully
+2026-04-17 05:12:50 [main] INFO  LibrarySession - Closing session: session 1
+2026-04-17 05:12:50 [main] INFO  Main - completed execution
+2026-04-17 05:13:02 [main] INFO  Main - Starting library simulatin
+2026-04-17 05:13:02 [main] INFO  Main - Welcome to the library
+2026-04-17 05:13:02 [main] INFO  Main - Inventory item: crime and punishment
+2026-04-17 05:13:02 [main] INFO  Main - Inventory item: The lion king
+2026-04-17 05:13:02 [main] INFO  Main - Inventory item: The lord of the rings
+2026-04-17 05:13:02 [main] INFO  Main - Items that costs above 10:
+2026-04-17 05:13:02 [main] INFO  Main - crime and punishment
+2026-04-17 05:13:02 [main] INFO  Main - The lion king
+2026-04-17 05:13:02 [main] INFO  Main - Descriptions:
+2026-04-17 05:13:02 [main] INFO  Main - crime and punishment by fiodor dostoevsky
+2026-04-17 05:13:02 [main] INFO  Main - The lion king by roger allers
+2026-04-17 05:13:02 [main] INFO  Main - The lord of the rings by JRR tolkien
+2026-04-17 05:13:02 [main] INFO  Main - john is about to borrow crime and punishment
+2026-04-17 05:13:02 [main] INFO  Main - item names: crime and punishment, The lion king, The lord of the rings
+2026-04-17 05:13:02 [main] INFO  Main - Expensive items: [crime and punishment, The lion king]
+2026-04-17 05:13:02 [main] INFO  Main - Sorted item names: [The lion king, The lord of the rings, crime and punishment]
+2026-04-17 05:13:02 [main] INFO  Main - Customer names:
+2026-04-17 05:13:02 [main] INFO  Main - john
+2026-04-17 05:13:02 [main] WARN  Main - can john borrow: crime and punishment?true
+2026-04-17 05:13:02 [main] WARN  Main - Notifying john: Your book is overdue!
+2026-04-17 05:13:02 [main] INFO  Main - crime and punishment
+2026-04-17 05:13:02 [main] INFO  Main - The lion king
+2026-04-17 05:13:02 [main] INFO  Main - The lord of the rings
+2026-04-17 05:13:02 [main] INFO  Main - crime and punishment
+2026-04-17 05:13:02 [main] INFO  Main - The lion king
+2026-04-17 05:13:02 [main] INFO  Main - The lord of the rings
+2026-04-17 05:13:02 [main] INFO  Main - crime and punishment
+2026-04-17 05:13:02 [main] INFO  Main - The lion king
+2026-04-17 05:13:02 [main] INFO  Main - The lord of the rings
+2026-04-17 05:13:02 [main] INFO  Main - BorrowRecord[customerName=john, itemName=crime and punishment, borrowDate=2026-04-17T05:13:02.555173600]
+2026-04-17 05:13:02 [main] INFO  LibraryReflection - CLASS: com.solvd.library.inventory.Book
+2026-04-17 05:13:02 [main] INFO  LibraryReflection - MODIFIERS: public
+2026-04-17 05:13:02 [main] INFO  LibraryReflection - FIELDS:
+2026-04-17 05:13:02 [main] INFO  LibraryReflection -   private static final Logger log
+2026-04-17 05:13:02 [main] INFO  LibraryReflection - CONSTRUCTORS:
+2026-04-17 05:13:02 [main] INFO  LibraryReflection -   public Book(String, Author, Supervisor, BigDecimal, Publisher, Genre)
+2026-04-17 05:13:02 [main] INFO  LibraryReflection - METHODS:
+2026-04-17 05:13:02 [main] INFO  LibraryReflection -   public void bookItem(Customer)
+2026-04-17 05:13:02 [main] INFO  LibraryReflection -   public void returnItem()
+2026-04-17 05:13:02 [main] INFO  LibraryReflection - CLASS ANNOTATION ON Book: Physical borrowable item
+2026-04-17 05:13:02 [main] INFO  LibraryReflection - METHOD ANNOTATION ON getDescription: Returns a readable library description
+2026-04-17 05:13:02 [main] INFO  LibraryReflection - REFLECTION INVOCATION RESULT: Library named Reflection Library
+2026-04-17 05:13:02 [main] INFO  LibrarySession - Opening session: session 1
+2026-04-17 05:13:02 [main] INFO  Book - thanks, enjoy!
+2026-04-17 05:13:02 [main] INFO  Movie - thank you, enjoy!
+2026-04-17 05:13:02 [main] INFO  EBook - Download your Book here: download_link
+2026-04-17 05:13:02 [main] INFO  Book - than you, come again!
+2026-04-17 05:13:02 [main] INFO  Movie - thank you, come again!
+2026-04-17 05:13:02 [main] INFO  EBook - E-Books do not need to be returned.
+2026-04-17 05:13:02 [main] INFO  LibrarySession - [session 1] Finished transactions successfully
+2026-04-17 05:13:02 [main] INFO  LibrarySession - Closing session: session 1
+2026-04-17 05:13:02 [main] INFO  Main - completed execution

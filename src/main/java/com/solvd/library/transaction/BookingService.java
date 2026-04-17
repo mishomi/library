@@ -1,13 +1,19 @@
 package com.solvd.library.transaction;
 
+import com.solvd.library.inventory.Book;
 import com.solvd.library.inventory.Inventory;
 import com.solvd.library.inventory.ItemUnavailableException;
 import com.solvd.library.person.Customer;
+import com.solvd.library.reflection.LibraryReflection;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class BookingService {
+
+    private static final Logger logger = LogManager.getLogger(BookingService.class);
     public Log log = new Log();
     private static Map<BorrowKey, Record> records;
     private static int recordsPointer;
@@ -37,7 +43,7 @@ public class BookingService {
         BorrowKey borrowKey = new BorrowKey(customer, inventory);
         Record record = records.get(borrowKey);
         if (record == null){
-            System.out.println("item not on record");
+            logger.warn("item not on record");
             return;
         }
         inventory.returnItem();
@@ -53,14 +59,14 @@ public class BookingService {
 
     public Record getFirstRecord(){
         if (records.isEmpty()){
-            System.out.println("no records to date");
+            logger.warn("no records to date");
             return null;
         }
         return records.values().stream().findFirst().orElse(null);
     }
 
     public static void getReCords() {
-        records.forEach((key, value) -> System.out.println(value.getCustomer().getName()
+        records.forEach((key, value) -> logger.info(value.getCustomer().getName()
                 + "borrowed " + value.getInventory().getName()));
     }
 }

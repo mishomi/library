@@ -1,12 +1,15 @@
 package com.solvd.library.organization;
 
 import com.solvd.library.inventory.Inventory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class Publisher extends Organization {
 
+    private static final Logger log = LogManager.getLogger(Publisher.class);
     private String country;
     private Set<Inventory> publishedBooks;
 
@@ -20,7 +23,7 @@ public class Publisher extends Organization {
     public void addInventory(Inventory inventory) {
 
         if (publishedBooks.contains(inventory)) {
-            System.out.println("book already accounted for");
+            log.warn("book already accounted for");
             return;
         }
         publishedBooks.add(inventory);
@@ -28,7 +31,7 @@ public class Publisher extends Organization {
 
     public void removeInventory(Inventory inventory){
         if (!publishedBooks.contains(inventory)){
-            System.out.println("book already removed");
+            log.warn("book already removed");
             return;
         }
         publishedBooks.remove(inventory);

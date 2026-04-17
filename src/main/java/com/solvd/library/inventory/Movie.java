@@ -1,14 +1,18 @@
 package com.solvd.library.inventory;
 
+import com.solvd.library.Main;
 import com.solvd.library.person.Author;
 import com.solvd.library.person.Customer;
 import com.solvd.library.organization.Publisher;
 import com.solvd.library.workers.Supervisor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.math.BigDecimal;
 
 public class Movie extends Inventory implements ItemWithPrice, BorrowableItem {
 
+    private static final Logger log = LogManager.getLogger(Movie.class);
     private int minimumRequiredAge;
 
     public Movie(String name, Author author, BigDecimal price, Supervisor supervisor, int minimumRequiredAge, Publisher publisher, Genre genre) {
@@ -44,14 +48,14 @@ public class Movie extends Inventory implements ItemWithPrice, BorrowableItem {
         customer.setMoney(customer.getMoney().subtract(this.getPrice()));
         getSupervisor().removeInventoryItem(this);
 
-        System.out.println("thank you, enjoy!");
+        log.info("thank you, enjoy!");
     }
 
     @Override
     public void returnItem() {
 
         getSupervisor().addInventoryItem(this);
-        System.out.println("thank you, come again!");
+        log.info("thank you, come again!");
     }
 
     public int getMinimumRequiredAge() {

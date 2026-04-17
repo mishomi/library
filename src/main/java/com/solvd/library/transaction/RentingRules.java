@@ -1,11 +1,15 @@
 package com.solvd.library.transaction;
 
 import com.solvd.library.person.Customer;
+import com.solvd.library.reflection.LibraryReflection;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.math.BigDecimal;
 
 public final class RentingRules {
 
+    private static final Logger log = LogManager.getLogger(RentingRules.class);
     public static final int maxDaysToRent = 30;
     public static final BigDecimal lateFine = new BigDecimal("20");
 
@@ -21,6 +25,6 @@ public final class RentingRules {
     }
 
     public final void messageForCustomers() {
-        System.out.println("Once you borrow an item, you have " + maxDaysToRent + "days to return it, otherwise you get a " + lateFine + " fine");
+        log.info("Once you borrow an item, you have " + maxDaysToRent + "days to return it, otherwise you get a " + lateFine + " fine");
     }
 }

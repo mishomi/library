@@ -1,10 +1,15 @@
 package com.solvd.library.inventory;
 
+import com.solvd.library.Main;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class Genre {
 
+    private static final Logger log = LogManager.getLogger(Genre.class);
     protected String name;
     private Set<Inventory> booksInThisGenre;
     private GenreType genreType;
@@ -17,7 +22,7 @@ public class Genre {
     public void addBook(Inventory inventory) {
 
         if (booksInThisGenre.contains(inventory)) {
-            System.out.println("book already accounted for");
+            log.warn("book already accounted for");
             return;
         }
         booksInThisGenre.add(inventory);
@@ -25,7 +30,7 @@ public class Genre {
 
     public void removeBook(Inventory inventory){
         if (!booksInThisGenre.contains(inventory)){
-            System.out.println("book already removed");
+            log.warn("book already removed");
             return;
         }
         booksInThisGenre.remove(inventory);

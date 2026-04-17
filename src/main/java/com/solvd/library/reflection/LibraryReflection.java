@@ -1,6 +1,8 @@
 package com.solvd.library.reflection;
 
 import com.solvd.library.annotations.LibraryFeature;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Executable;
@@ -12,69 +14,70 @@ import java.util.stream.Collectors;
 
 public final class LibraryReflection {
 
+    private static final Logger log = LogManager.getLogger(LibraryReflection.class);
     private LibraryReflection() {
     }
 
     public static void inspectClass(Class<?> clazz) {
-        System.out.println("CLASS: " + clazz.getName());
-        System.out.println("MODIFIERS: " + Modifier.toString(clazz.getModifiers()));
+        log.info("CLASS: " + clazz.getName());
+        log.info("MODIFIERS: " + Modifier.toString(clazz.getModifiers()));
 
-        System.out.println("FIELDS:");
+        log.info("FIELDS:");
         for (Field field : clazz.getDeclaredFields()) {
-            System.out.println("  " + Modifier.toString(field.getModifiers()) + " " + field.getType().getSimpleName() + " " + field.getName());
+            log.info("  " + Modifier.toString(field.getModifiers()) + " " + field.getType().getSimpleName() + " " + field.getName());
         }
 
-        System.out.println("CONSTRUCTORS:");
+        log.info("CONSTRUCTORS:");
         for (Constructor<?> constructor : clazz.getDeclaredConstructors()) {
-            System.out.println("  " + Modifier.toString(constructor.getModifiers()) + " " + constructorSignature(constructor));
+            log.info("  " + Modifier.toString(constructor.getModifiers()) + " " + constructorSignature(constructor));
         }
 
-        System.out.println("METHODS:");
+        log.info("METHODS:");
         for (Method method : clazz.getDeclaredMethods()) {
-            System.out.println("  " + Modifier.toString(method.getModifiers()) + " " + method.getReturnType().getSimpleName() + " " + methodSignature(method));
+            log.info("  " + Modifier.toString(method.getModifiers()) + " " + method.getReturnType().getSimpleName() + " " + methodSignature(method));
         }
     }
 
     public static void handleCustomAnnotations(Class<?> clazz) {
         if (clazz.isAnnotationPresent(LibraryFeature.class)) {
             LibraryFeature feature = clazz.getAnnotation(LibraryFeature.class);
-            System.out.println("CLASS ANNOTATION ON " + clazz.getSimpleName() + ": " + feature.value());
+            log.info("CLASS ANNOTATION ON " + clazz.getSimpleName() + ": " + feature.value());
         }
 
         for (Field field : clazz.getDeclaredFields()) {
             if (field.isAnnotationPresent(LibraryFeature.class)) {
                 LibraryFeature feature = field.getAnnotation(LibraryFeature.class);
-                System.out.println("FIELD ANNOTATION ON " + field.getName() + ": " + feature.value());
+                log.info("FIELD ANNOTATION ON " + field.getName() + ": " + feature.value());
             }
         }
 
         for (Constructor<?> constructor : clazz.getDeclaredConstructors()) {
             if (constructor.isAnnotationPresent(LibraryFeature.class)) {
                 LibraryFeature feature = constructor.getAnnotation(LibraryFeature.class);
-                System.out.println("CONSTRUCTOR ANNOTATION: " + feature.value());
+                log.info("CONSTRUCTOR ANNOTATION: " + feature.value());
             }
         }
 
         for (Method method : clazz.getDeclaredMethods()) {
             if (method.isAnnotationPresent(LibraryFeature.class)) {
                 LibraryFeature feature = method.getAnnotation(LibraryFeature.class);
-                System.out.println("METHOD ANNOTATION ON " + method.getName() + ": " + feature.value());
+                log.info("METHOD ANNOTATION ON " + method.getName() + ": " + feature.value());
             }
         }
     }
 
     public static void createObjectAndCallMethodUsingReflection() {
         try {
-            Class<?> libraryClass = Class.forName("main.java.com.solvd.library.organization.Library");
+            Class<?> libraryClass = Class.forName("com.solvd.library.organization.Library");
             Constructor<?> constructor = libraryClass.getConstructor(String.class);
             Object libraryObject = constructor.newInstance("Reflection Library");
 
             Method method = libraryClass.getMethod("getDescription");
             Object result = method.invoke(libraryObject);
 
-            System.out.println("REFLECTION INVOCATION RESULT: " + result);
+            log.info("REFLECTION INVOCATION RESULT: " + result);
         } catch (Exception e) {
-            System.out.println("Reflection error: " + e.getMessage());
+            log.error("Reflection error: " + e.getMessage());
         }
     }
 

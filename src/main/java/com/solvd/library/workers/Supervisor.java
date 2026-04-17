@@ -1,12 +1,16 @@
 package com.solvd.library.workers;
 
 import com.solvd.library.inventory.Inventory;
+import com.solvd.library.reflection.LibraryReflection;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Supervisor extends Worker implements StaffMember {
 
+    private static final Logger log = LogManager.getLogger(Supervisor.class);
     private List<Inventory> assignedInventory;
 
     public Supervisor(int salary, String name) {
@@ -17,7 +21,7 @@ public class Supervisor extends Worker implements StaffMember {
     public void addInventoryItem(Inventory inventory) {
 
         if (assignedInventory.contains(inventory)){
-            System.out.println("main.java.com.solvd.library.inventory already accounted for");
+            log.warn("inventory already accounted for");
             return;
         }
         assignedInventory.add(inventory);
@@ -27,7 +31,7 @@ public class Supervisor extends Worker implements StaffMember {
     public void removeInventoryItem(Inventory inventory) {
 
         if (!assignedInventory.contains(inventory)){
-            System.out.println("item not in main.java.com.solvd.library.inventory");
+            log.warn("item not in inventory");
             return;
         }
         assignedInventory.remove(inventory);
@@ -43,6 +47,6 @@ public class Supervisor extends Worker implements StaffMember {
 
     @Override
     public String getDuties() {
-        return "Supervises main.java.com.solvd.library.inventory and staff";
+        return "Supervises inventory and staff";
     }
 }

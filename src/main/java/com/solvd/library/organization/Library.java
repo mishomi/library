@@ -1,30 +1,31 @@
 package com.solvd.library.organization;
 
+import com.solvd.library.Main;
 import com.solvd.library.annotations.LibraryFeature;
 import com.solvd.library.inventory.Inventory;
 import com.solvd.library.person.Customer;
 import com.solvd.library.workers.Worker;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Library extends Organization {
 
+    private static final Logger log = LogManager.getLogger(Library.class);
     private GenericOrganization<Inventory> inventory;
     private GenericOrganization<Worker> workers;
     private GenericOrganization<Customer> customers;
-
-    private int customerCount;
 
     public Library(String name) {
         super(name);
         this.inventory = new GenericOrganization<>();
         this.workers = new GenericOrganization<>();
         this.customers = new GenericOrganization<>();
-        this.customerCount = 0;
     }
 
     public void addInventoryItem(Inventory inventoryItem) {
 
         if (inventory.contains(inventoryItem)){
-            System.out.println("item already accounted for");
+            log.warn("item already accounted for");
             return;
         }
         inventory.add(inventoryItem);
@@ -33,7 +34,7 @@ public class Library extends Organization {
     public void removeInventoryItem(Inventory inventoryItem) {
 
         if (!inventory.contains(inventoryItem)){
-            System.out.println("item no longer i main.java.com.solvd.library.inventory");
+            log.warn("item no longer in inventory");
             return;
         }
         inventory.remove(inventoryItem);
@@ -42,7 +43,7 @@ public class Library extends Organization {
     public void addWorker(Worker libraryWorker) {
 
         if (workers.contains(libraryWorker)){
-            System.out.println("worker already in the books");
+            log.warn("worker already in the books");
             return;
         }
         workers.add(libraryWorker);
@@ -51,7 +52,7 @@ public class Library extends Organization {
     public void removeWorker(Worker libraryWorker) {
 
         if (!workers.contains(libraryWorker)){
-            System.out.println("worker no longer works here");
+            log.warn("worker no longer works here");
             return;
         }
         workers.remove(libraryWorker);
@@ -60,7 +61,7 @@ public class Library extends Organization {
     public void addCustomer(Customer customer) {
 
         if (customers.contains(customer)){
-            System.out.println("customer already in the books");
+            log.warn("customer already in the books");
             return;
         }
         customers.add(customer);
@@ -69,7 +70,7 @@ public class Library extends Organization {
     public void removeCustomer(Customer customer) {
 
         if (!customers.contains(customer)){
-            System.out.println("customer no longer shops here");
+            log.warn("customer no longer shops here");
             return;
         }
         customers.remove(customer);

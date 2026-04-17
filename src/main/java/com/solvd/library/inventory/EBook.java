@@ -1,14 +1,18 @@
 package com.solvd.library.inventory;
 
+import com.solvd.library.Main;
 import com.solvd.library.person.Author;
 import com.solvd.library.person.Customer;
 import com.solvd.library.organization.Publisher;
 import com.solvd.library.workers.Supervisor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.math.BigDecimal;
 
 public class EBook extends Inventory implements BorrowableItem {
 
+    private static final Logger log = LogManager.getLogger(EBook.class);
     private String link;
 
     public EBook(String name, Author author, Supervisor supervisor, String link, Publisher publisher, Genre genre) {
@@ -27,12 +31,12 @@ public class EBook extends Inventory implements BorrowableItem {
                 throw new OutstandingFeesException("Pay your fine first");
             }
         }
-        System.out.println("Download your E-main.java.com.solvd.library.inventory.Book here: " + link);
+        log.info("Download your Book here: " + link);
     }
 
     @Override
     public void returnItem() {
-        System.out.println("E-Books do not need to be returned.");
+        log.info("E-Books do not need to be returned.");
     }
 
     public String getLink() {
