@@ -11,6 +11,7 @@ import com.solvd.library.workers.Custodian;
 import com.solvd.library.workers.Receptionist;
 import com.solvd.library.workers.Supervisor;
 import com.solvd.library.inventory.*;
+import com.solvd.library.concurrent.LibraryConcurrencyDemo;
 
 import java.math.BigDecimal;
 import java.util.function.*;
@@ -147,6 +148,8 @@ public class Main {
                 java.time.LocalDateTime.now().toString()
         );
         log.info(borrowRecord);
+
+        LibraryConcurrencyDemo.runDemo();
 
         LibraryReflection.inspectClass(Book.class);
         LibraryReflection.handleCustomAnnotations(Book.class);
