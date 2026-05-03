@@ -626,3 +626,115 @@
 2026-04-20 01:29:26 [main] INFO  LibrarySession - [session 1] Finished transactions successfully
 2026-04-20 01:29:26 [main] INFO  LibrarySession - Closing session: session 1
 2026-04-20 01:29:26 [main] INFO  Main - completed execution
+2026-05-03 18:19:23 [main] INFO  Main - Starting library simulatin
+2026-05-03 18:19:23 [main] INFO  Main - Welcome to the library
+2026-05-03 18:19:23 [main] INFO  Main - Inventory item: crime and punishment
+2026-05-03 18:19:23 [main] INFO  Main - Inventory item: The lion king
+2026-05-03 18:19:23 [main] INFO  Main - Inventory item: The lord of the rings
+2026-05-03 18:19:23 [main] INFO  Main - Items that costs above 10:
+2026-05-03 18:19:23 [main] INFO  Main - crime and punishment
+2026-05-03 18:19:23 [main] INFO  Main - The lion king
+2026-05-03 18:19:23 [main] INFO  Main - Descriptions:
+2026-05-03 18:19:23 [main] INFO  Main - crime and punishment by fiodor dostoevsky
+2026-05-03 18:19:23 [main] INFO  Main - The lion king by roger allers
+2026-05-03 18:19:23 [main] INFO  Main - The lord of the rings by JRR tolkien
+2026-05-03 18:19:23 [main] INFO  Main - john is about to borrow crime and punishment
+2026-05-03 18:19:23 [main] INFO  Main - item names: crime and punishment, The lion king, The lord of the rings
+2026-05-03 18:19:23 [main] INFO  Main - Expensive items: [crime and punishment, The lion king]
+2026-05-03 18:19:23 [main] INFO  Main - Sorted item names: [The lion king, The lord of the rings, crime and punishment]
+2026-05-03 18:19:23 [main] INFO  Main - Customer names:
+2026-05-03 18:19:23 [main] INFO  Main - john
+2026-05-03 18:19:23 [main] WARN  Main - can john borrow: crime and punishment?true
+2026-05-03 18:19:23 [main] WARN  Main - Notifying john: Your book is overdue!
+2026-05-03 18:19:23 [main] INFO  Main - crime and punishment
+2026-05-03 18:19:23 [main] INFO  Main - The lion king
+2026-05-03 18:19:23 [main] INFO  Main - The lord of the rings
+2026-05-03 18:19:23 [main] INFO  Main - crime and punishment
+2026-05-03 18:19:23 [main] INFO  Main - The lion king
+2026-05-03 18:19:23 [main] INFO  Main - The lord of the rings
+2026-05-03 18:19:23 [main] INFO  Main - crime and punishment
+2026-05-03 18:19:23 [main] INFO  Main - The lion king
+2026-05-03 18:19:23 [main] INFO  Main - The lord of the rings
+2026-05-03 18:19:23 [main] INFO  Main - BorrowRecord[customerName=john, itemName=crime and punishment, borrowDate=2026-05-03T18:19:23.391841100]
+2026-05-03 18:19:23 [Thread-Worker] INFO  ThreadWorker - Thread task started: catalog backup
+2026-05-03 18:19:23 [Runnable-Thread] INFO  RunnableWorker - Runnable task started: shelf audit
+2026-05-03 18:19:23 [pool-2-thread-3] INFO  LibraryTerminalPool - Acquired LibraryTerminal-2
+2026-05-03 18:19:23 [pool-2-thread-1] INFO  LibraryTerminalPool - Acquired LibraryTerminal-1
+2026-05-03 18:19:23 [pool-2-thread-1] INFO  LibraryConcurrencyDemo - Customer 1 is using LibraryTerminal-1
+2026-05-03 18:19:23 [pool-2-thread-5] INFO  LibraryTerminalPool - Acquired LibraryTerminal-5
+2026-05-03 18:19:23 [pool-2-thread-2] INFO  LibraryTerminalPool - Acquired LibraryTerminal-3
+2026-05-03 18:19:23 [pool-2-thread-4] INFO  LibraryTerminalPool - Acquired LibraryTerminal-4
+2026-05-03 18:19:23 [pool-2-thread-3] INFO  LibraryConcurrencyDemo - Customer 3 is using LibraryTerminal-2
+2026-05-03 18:19:23 [pool-2-thread-5] INFO  LibraryConcurrencyDemo - Customer 5 is using LibraryTerminal-5
+2026-05-03 18:19:23 [pool-2-thread-2] INFO  LibraryConcurrencyDemo - Customer 2 is using LibraryTerminal-3
+2026-05-03 18:19:23 [pool-2-thread-4] INFO  LibraryConcurrencyDemo - Customer 4 is using LibraryTerminal-4
+2026-05-03 18:19:23 [pool-2-thread-1] INFO  LibraryConcurrencyDemo - Terminal 1 searched catalog for: Book 1
+2026-05-03 18:19:23 [pool-2-thread-2] INFO  LibraryConcurrencyDemo - Terminal 3 searched catalog for: Book 2
+2026-05-03 18:19:23 [pool-2-thread-5] INFO  LibraryConcurrencyDemo - Terminal 5 searched catalog for: Book 5
+2026-05-03 18:19:23 [pool-2-thread-3] INFO  LibraryConcurrencyDemo - Terminal 2 searched catalog for: Book 3
+2026-05-03 18:19:23 [pool-2-thread-4] INFO  LibraryConcurrencyDemo - Terminal 4 searched catalog for: Book 4
+2026-05-03 18:19:24 [Thread-Worker] INFO  ThreadWorker - Thread task finished: catalog backup
+2026-05-03 18:19:24 [Runnable-Thread] INFO  RunnableWorker - Runnable task finished: shelf audit
+2026-05-03 18:19:25 [pool-2-thread-5] INFO  LibraryConcurrencyDemo - Terminal 5 borrowed: Book 5
+2026-05-03 18:19:25 [pool-2-thread-3] INFO  LibraryConcurrencyDemo - Terminal 2 borrowed: Book 3
+2026-05-03 18:19:25 [pool-2-thread-3] INFO  LibraryConcurrencyDemo - Terminal 2 returned: Book 3
+2026-05-03 18:19:25 [pool-2-thread-5] INFO  LibraryConcurrencyDemo - Terminal 5 returned: Book 5
+2026-05-03 18:19:25 [pool-2-thread-1] INFO  LibraryConcurrencyDemo - Terminal 1 borrowed: Book 1
+2026-05-03 18:19:25 [pool-2-thread-5] INFO  LibraryConcurrencyDemo - Terminal 5 reserved: Book 5
+2026-05-03 18:19:25 [pool-2-thread-3] INFO  LibraryConcurrencyDemo - Terminal 2 reserved: Book 3
+2026-05-03 18:19:25 [pool-2-thread-3] INFO  LibraryTerminalPool - Released LibraryTerminal-2
+2026-05-03 18:19:25 [pool-2-thread-5] INFO  LibraryTerminalPool - Released LibraryTerminal-5
+2026-05-03 18:19:25 [pool-2-thread-6] INFO  LibraryTerminalPool - Acquired LibraryTerminal-5
+2026-05-03 18:19:25 [pool-2-thread-7] INFO  LibraryTerminalPool - Acquired LibraryTerminal-2
+2026-05-03 18:19:25 [pool-2-thread-2] INFO  LibraryConcurrencyDemo - Terminal 3 borrowed: Book 2
+2026-05-03 18:19:25 [pool-2-thread-6] INFO  LibraryConcurrencyDemo - Customer 6 is using LibraryTerminal-5
+2026-05-03 18:19:25 [pool-2-thread-2] INFO  LibraryConcurrencyDemo - Terminal 3 returned: Book 2
+2026-05-03 18:19:25 [pool-2-thread-7] INFO  LibraryConcurrencyDemo - Customer 7 is using LibraryTerminal-2
+2026-05-03 18:19:25 [pool-2-thread-6] INFO  LibraryConcurrencyDemo - Terminal 5 searched catalog for: Book 6
+2026-05-03 18:19:25 [pool-2-thread-7] INFO  LibraryConcurrencyDemo - Terminal 2 searched catalog for: Book 7
+2026-05-03 18:19:25 [pool-2-thread-2] INFO  LibraryConcurrencyDemo - Terminal 3 reserved: Book 2
+2026-05-03 18:19:25 [pool-2-thread-1] INFO  LibraryConcurrencyDemo - Terminal 1 returned: Book 1
+2026-05-03 18:19:25 [pool-2-thread-4] INFO  LibraryConcurrencyDemo - Terminal 4 borrowed: Book 4
+2026-05-03 18:19:25 [pool-2-thread-1] INFO  LibraryConcurrencyDemo - Terminal 1 reserved: Book 1
+2026-05-03 18:19:25 [pool-2-thread-2] INFO  LibraryTerminalPool - Released LibraryTerminal-3
+2026-05-03 18:19:25 [pool-2-thread-4] INFO  LibraryConcurrencyDemo - Terminal 4 returned: Book 4
+2026-05-03 18:19:25 [pool-2-thread-1] INFO  LibraryTerminalPool - Released LibraryTerminal-1
+2026-05-03 18:19:25 [pool-2-thread-4] INFO  LibraryConcurrencyDemo - Terminal 4 reserved: Book 4
+2026-05-03 18:19:25 [pool-2-thread-4] INFO  LibraryTerminalPool - Released LibraryTerminal-4
+2026-05-03 18:19:27 [pool-2-thread-7] INFO  LibraryConcurrencyDemo - Terminal 2 borrowed: Book 7
+2026-05-03 18:19:27 [pool-2-thread-7] INFO  LibraryConcurrencyDemo - Terminal 2 returned: Book 7
+2026-05-03 18:19:27 [pool-2-thread-7] INFO  LibraryConcurrencyDemo - Terminal 2 reserved: Book 7
+2026-05-03 18:19:27 [pool-2-thread-7] INFO  LibraryTerminalPool - Released LibraryTerminal-2
+2026-05-03 18:19:27 [pool-2-thread-6] INFO  LibraryConcurrencyDemo - Terminal 5 borrowed: Book 6
+2026-05-03 18:19:27 [pool-2-thread-6] INFO  LibraryConcurrencyDemo - Terminal 5 returned: Book 6
+2026-05-03 18:19:27 [pool-2-thread-6] INFO  LibraryConcurrencyDemo - Terminal 5 reserved: Book 6
+2026-05-03 18:19:27 [pool-2-thread-6] INFO  LibraryTerminalPool - Released LibraryTerminal-5
+2026-05-03 18:19:27 [main] INFO  LibraryConcurrencyDemo - Library concurrency demo finished
+2026-05-03 18:19:27 [main] INFO  LibraryAsyncDemo - Library name: main library
+2026-05-03 18:19:27 [main] INFO  LibraryAsyncDemo - Inventory count: 3
+2026-05-03 18:19:27 [main] INFO  LibraryAsyncDemo - Library name: main library, inventory count: 3
+2026-05-03 18:19:27 [main] INFO  LibraryAsyncDemo - Inventory is available
+2026-05-03 18:19:27 [main] INFO  LibraryAsyncDemo - crime and punishment by fiodor dostoevsky
+2026-05-03 18:19:27 [main] INFO  LibraryAsyncDemo - First item: crime and punishment, all items: crime and punishment, The lion king, The lord of the rings
+2026-05-03 18:19:27 [main] INFO  LibraryReflection - CLASS: com.solvd.library.inventory.Book
+2026-05-03 18:19:27 [main] INFO  LibraryReflection - MODIFIERS: public
+2026-05-03 18:19:27 [main] INFO  LibraryReflection - FIELDS:
+2026-05-03 18:19:27 [main] INFO  LibraryReflection -   private static final Logger log
+2026-05-03 18:19:27 [main] INFO  LibraryReflection - CONSTRUCTORS:
+2026-05-03 18:19:27 [main] INFO  LibraryReflection -   public Book(String, Author, Supervisor, BigDecimal, Publisher, Genre)
+2026-05-03 18:19:27 [main] INFO  LibraryReflection - METHODS:
+2026-05-03 18:19:27 [main] INFO  LibraryReflection -   public void returnItem()
+2026-05-03 18:19:27 [main] INFO  LibraryReflection -   public void bookItem(Customer)
+2026-05-03 18:19:27 [main] INFO  LibraryReflection - CLASS ANNOTATION ON Book: Physical borrowable item
+2026-05-03 18:19:27 [main] INFO  LibraryReflection - METHOD ANNOTATION ON getDescription: Returns a readable library description
+2026-05-03 18:19:27 [main] INFO  LibraryReflection - REFLECTION INVOCATION RESULT: Library named Reflection Library
+2026-05-03 18:19:27 [main] INFO  LibrarySession - Opening session: session 1
+2026-05-03 18:19:27 [main] INFO  Book - thanks, enjoy!
+2026-05-03 18:19:27 [main] INFO  Movie - thank you, enjoy!
+2026-05-03 18:19:27 [main] INFO  EBook - Download your Book here: download_link
+2026-05-03 18:19:27 [main] INFO  Book - than you, come again!
+2026-05-03 18:19:27 [main] INFO  Movie - thank you, come again!
+2026-05-03 18:19:27 [main] INFO  EBook - E-Books do not need to be returned.
+2026-05-03 18:19:27 [main] INFO  LibrarySession - [session 1] Finished transactions successfully
+2026-05-03 18:19:27 [main] INFO  LibrarySession - Closing session: session 1
+2026-05-03 18:19:27 [main] INFO  Main - completed execution

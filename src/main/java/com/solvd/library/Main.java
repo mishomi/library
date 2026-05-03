@@ -12,6 +12,7 @@ import com.solvd.library.workers.Receptionist;
 import com.solvd.library.workers.Supervisor;
 import com.solvd.library.inventory.*;
 import com.solvd.library.concurrent.LibraryConcurrencyDemo;
+import com.solvd.library.async.LibraryAsyncDemo;
 
 import java.math.BigDecimal;
 import java.util.function.*;
@@ -150,6 +151,7 @@ public class Main {
         log.info(borrowRecord);
 
         LibraryConcurrencyDemo.runDemo();
+        LibraryAsyncDemo.runDemo(library);
 
         LibraryReflection.inspectClass(Book.class);
         LibraryReflection.handleCustomAnnotations(Book.class);
