@@ -17,6 +17,11 @@ import com.solvd.library.async.LibraryAsyncDemo;
 import java.math.BigDecimal;
 import java.util.function.*;
 
+import com.solvd.library.xml.model.LibraryXml;
+import com.solvd.library.xml.parser.LibraryJacksonParser;
+import com.solvd.library.xml.parser.LibraryJaxbParser;
+import com.solvd.library.xml.parser.LibrarySaxParser;
+import com.solvd.library.xml.parser.XmlValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -26,7 +31,7 @@ public class Main {
 
     private static final Logger log = LogManager.getLogger(Main.class);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         TextWordCounter.countUniqueWords();
         Genre genre = new Genre("basic_genre", GenreType.THRILLER);
@@ -152,6 +157,19 @@ public class Main {
 
         LibraryConcurrencyDemo.runDemo();
         LibraryAsyncDemo.runDemo(library);
+
+
+        XmlValidator.validate("src/main/resources/library.xml", "src/main/resources/library.xsd");
+
+        LibraryXml saxResult = new LibrarySaxParser("src/main/resources/library.xsd").parse("src/main/resources/library.xml");
+        LibraryXml jaxbResult = new LibraryJaxbParser().parse("src/main/resources/library.xml");
+        LibraryXml jacksonResult = new LibraryJacksonParser().parse("src/main/resources/library.json");
+
+        log.info("SAX library name: {}", saxResult.libraryName);
+        log.info("SAX books: {}", saxResult.books.size());
+
+        log.info("JAXB library name: {}", jaxbResult.libraryName);
+        log.info("Jackson library name: {}", jacksonResult.libraryName);
 
         LibraryReflection.inspectClass(Book.class);
         LibraryReflection.handleCustomAnnotations(Book.class);

@@ -1,0 +1,50 @@
+{
+  "id": 1,
+  "open": true,
+  "libraryName": "Main Library",
+  "createdAt": "2026-05-03T18:19:23",
+  "publisher": {
+    "country": "Georgia",
+    "publisherName": "Solvd Press",
+    "foundedYear": 2018
+  },
+  "authors": [
+    {
+      "id": 1,
+      "authorName": "Fiodor Dostoevsky",
+      "nationality": "Russian"
+    },
+    {
+      "id": 2,
+      "authorName": "JRR Tolkien",
+      "nationality": "English"
+    }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "active": true,
+      "customerName": "John",
+      "age": 20,
+      "registeredAt": "2026-05-03T18:19:23"
+    }
+  ],
+  "books": [
+    {
+      "id": 1,
+      "title": "Crime and Punishment",
+      "pages": 671,
+      "price": 12.25,
+      "available": true,
+      "publishedAt": "2026-05-03T18:19:23",
+      "author": {
+        "id": 1,
+        "authorName": "Fiodor Dostoevsky",
+        "nationality": "Russian"
+      },
+      "genre": {
+        "genreName": "Thriller"
+      }
+    }
+  ]
+}

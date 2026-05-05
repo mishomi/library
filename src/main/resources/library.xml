@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library id="1" open="true">
+    <libraryName>Main Library</libraryName>
+    <createdAt>2026-05-03T18:19:23</createdAt>
+
+    <publisher country="Georgia">
+        <publisherName>Solvd Press</publisherName>
+        <foundedYear>2018</foundedYear>
+    </publisher>
+
+    <authors>
+        <author id="1">
+            <authorName>Fiodor Dostoevsky</authorName>
+            <nationality>Russian</nationality>
+        </author>
+        <author id="2">
+            <authorName>JRR Tolkien</authorName>
+            <nationality>English</nationality>
+        </author>
+    </authors>
+
+    <customers>
+        <customer id="1" active="true">
+            <customerName>John</customerName>
+            <age>20</age>
+            <registeredAt>2026-05-03T18:19:23</registeredAt>
+        </customer>
+    </customers>
+
+    <books>
+        <book id="1">
+            <title>Crime and Punishment</title>
+            <pages>671</pages>
+            <price>12.25</price>
+            <available>true</available>
+            <publishedAt>2026-05-03T18:19:23</publishedAt>
+            <author id="1">
+                <authorName>Fiodor Dostoevsky</authorName>
+                <nationality>Russian</nationality>
+            </author>
+            <genre>
+                <genreName>Thriller</genreName>
+            </genre>
+        </book>
+    </books>
+</library>
